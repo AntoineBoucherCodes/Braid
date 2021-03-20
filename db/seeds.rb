@@ -31,7 +31,7 @@ puts "Creating stores..."
   new_store = Store.create(
     name: Faker::Company.name,
     address: Faker::Address.city,
-    description: Faker::Company.catch_phrase,
+    description: Faker::Commerce.department,
     discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
     user_id: user_dummy.id
   )
