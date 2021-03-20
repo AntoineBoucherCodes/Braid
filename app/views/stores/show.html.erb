@@ -3,4 +3,6 @@
   <h2><%= @store.name %></h2>
   <p>Address: <%= @store.address %></p>
   <p>Description: <%= @store.description %></p>
+
+  <%= link_to "Delete this shop", store_path(@store), method: :delete, data: { confirm: "Are you sure you want to delete #{@store.name}?" }  %>
 </div>
