@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_store, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -45,5 +45,11 @@ class StoresController < ApplicationController
 
   def find_store
     @store = Store.find(params[:id])
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 end
