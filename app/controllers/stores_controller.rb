@@ -13,6 +13,13 @@ class StoresController < ApplicationController
   end
 
   def create
+    @store = Store.new(store_params)
+    @store.user = current_user
+    if @store.save
+      redirect_to store_path(@store)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,7 +34,7 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(:address, :discount_breakpoints, :description)
+    params.require(:store).permit(:name, :address, :discount_breakpoints, :description)
   end
 
 end

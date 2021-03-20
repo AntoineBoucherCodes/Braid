@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for(@store) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :discount_breakpoints %>
+    <%= f.submit %>
+  <% end %>
+</div>
