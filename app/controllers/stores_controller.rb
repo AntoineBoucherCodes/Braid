@@ -23,12 +23,17 @@ class StoresController < ApplicationController
   end
 
   def edit
+    @store = Store.find(params[:id])
   end
 
   def update
+    @store = Store.find(params[:id])
+    @store.update(store_params)
+    redirect_to store_path(@store)
   end
 
   def destroy
+
   end
 
   private
