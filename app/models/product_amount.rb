@@ -1,0 +1,2 @@
+class ProductAmount < ApplicationRecord
+end
