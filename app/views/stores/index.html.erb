@@ -1,0 +1,13 @@
+<div class="container">
+  <%= link_to "Create a new store", new_store_path %>
+  <ul>
+    <% @stores.each do |store| %>
+      <li>
+        <%= link_to store.name, store_path(store) %> | City: <%= store.address %>
+        <br>
+        <%= store.description %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+</div>
