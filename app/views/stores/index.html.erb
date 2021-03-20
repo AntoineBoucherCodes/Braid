@@ -2,7 +2,7 @@
   <ul>
     <% @stores.each do |store| %>
       <li>
-        <%= store.name %> | City: <%= store.address %>
+        <%= link_to store.name, store_path(store) %> | City: <%= store.address %>
         <br>
         <%= store.description %>
       </li>
