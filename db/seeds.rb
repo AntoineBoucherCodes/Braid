@@ -9,12 +9,22 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying all stores..."
-Store.destroy_all if Rails.env.development?
+Store.delete_all if Rails.env.development?
 puts "All stores were destroyed."
+
+puts ''
+
+puts "Destroying all users..."
+User.delete_all if Rails.env.development?
+puts "All users were destroyed."
+
+puts ''
 
 puts "Creating dummy user."
 user_dummy = User.create(email: "dummy@user.com", password: "123456")
-puts "#{user_dummy.id} was created."
+puts "#{user_dummy.email} was created."
+
+puts ''
 
 puts "Creating stores..."
 10.times do
@@ -22,7 +32,8 @@ puts "Creating stores..."
     name: Faker::Company.name,
     address: Faker::Address.city,
     description: Faker::Company.catch_phrase,
-    discount_breakpoints: rand(500..3000)
-    )
+    discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+    user_id: user_dummy.id
+  )
   puts "Store ##{new_store.id} was created."
 end
