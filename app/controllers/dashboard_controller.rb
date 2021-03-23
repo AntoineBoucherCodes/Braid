@@ -2,6 +2,9 @@ class DashboardController < ApplicationController
   before_action :require_login
 
   def dashboard
+    # Your Stores
+    @stores = policy_scope(Store).order(created_at: :desc)
+
     # Your Lobbies
 
     # Your Single Buy orders
