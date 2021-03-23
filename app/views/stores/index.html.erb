@@ -1,5 +1,7 @@
 <div class="container">
-  <%= link_to "Create a new store", new_store_path %>
+  <% if policy(Store).create? %>
+    <%= link_to "Create a new store", new_store_path %>
+  <% end %>
   <ul>
     <% @stores.each do |store| %>
       <li>
