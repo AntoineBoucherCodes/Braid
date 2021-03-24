@@ -13,6 +13,7 @@ class StoresController < ApplicationController
   def new
     # instantiate the form_for
     @store = Store.new
+    authorize @store
   end
 
   def create
@@ -43,7 +44,7 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(:name, :address, :discount_breakpoints, :description)
+    params.require(:store).permit(:name, :address, :discount_breakpoints, :description, :photo)
   end
 
   def find_store
