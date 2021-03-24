@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :find_product, except: :index
-  before_action :set_store, except: :index, :destroy
+  before_action :find_product, except: [:index, :new, :create]
+  before_action :set_store, except: [:index, :create, :show, :destroy]
 
   def index
-    @prodcuts = Product.all
+    @products = Product.all
   end
 
   def new
@@ -12,15 +12,15 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.store = @store
+    @store = @product.store
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to store_product_path(@product)
     else
       render :new
+    end
   end
 
   def show
-
   end
 
   def edit

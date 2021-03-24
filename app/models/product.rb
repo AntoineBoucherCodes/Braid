@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  has_one :store
+  belongs_to :store
 end

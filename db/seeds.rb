@@ -43,6 +43,17 @@ category = Categorie.create(name: 'dummy category')
 
 puts ''
 
+def create_store(user)
+  store = Store.create(
+    name: Faker::Company.name,
+    address: Faker::Address.city,
+    description: Faker::Commerce.department,
+    discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+    user_id: user.id
+  )
+  return store
+end
+
 puts "Creating stores..."
 10.times do
   new_store = create_store(user_dummy)
@@ -50,7 +61,7 @@ puts "Creating stores..."
   puts "Creating a few products, hold on...."
   10.times do
     new_product = Product.create(
-      name: Faker::Hipster.words,
+      name: Faker::Hipster.word,
       description: Faker::Hipster.sentence,
       price: Faker::Number.decimal(l_digits: 2),
       store_id: new_store.id,
@@ -62,16 +73,7 @@ end
 
 private
 
-def create_store(user)
-  store = Store.create(
-    name: Faker::Company.name,
-    address: Faker::Address.city,
-    description: Faker::Commerce.department,
-    discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-    user_id: user.id
-  )
-  return store
-end
+
 
 
 
