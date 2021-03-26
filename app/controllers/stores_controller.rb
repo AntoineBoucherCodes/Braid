@@ -7,6 +7,8 @@ class StoresController < ApplicationController
   end
 
   def show
+    # @products = Product.where(params[:product_id])
+    @products = @store.products
     authorize @store
   end
 
