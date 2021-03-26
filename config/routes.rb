@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :stores do
-     resources :products, except: [:index]
+    resources :products, only: [:new, :create, :delete]
   end
-  resources :products, only: [:index]
+  resources :products, except: [:new, :create, :delete]
 end
