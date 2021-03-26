@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :products, only: [:new, :create, :delete]
   end
   resources :products, except: [:new, :create, :delete]
+
+  get 'dashboard', to: 'dashboard#dashboard', as: 'dashboard'
 end

@@ -1,14 +1,15 @@
 class StoresController < ApplicationController
-
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_store, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stores = Store.all
+    @stores = policy_scope(Store).order(created_at: :desc)
   end
 
   def show
     # @products = Product.where(params[:product_id])
     @products = @store.products
+    authorize @store
   end
 
   def new
@@ -24,6 +25,7 @@ class StoresController < ApplicationController
     else
       render :new
     end
+    authorize @store
   end
 
   def edit
@@ -32,6 +34,7 @@ class StoresController < ApplicationController
   def update
     @store.update(store_params)
     redirect_to store_path(@store)
+    authorize @store
   end
 
   def destroy
@@ -47,5 +50,12 @@ class StoresController < ApplicationController
 
   def find_store
     @store = Store.find(params[:id])
+    authorize @store
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 end
