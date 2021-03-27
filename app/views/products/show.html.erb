@@ -2,5 +2,9 @@
 
 <h2> <%= @product.description %> </h2>
 
+<% @product.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <%= link_to "Edit this product", edit_product_path(@product)  %>
 
