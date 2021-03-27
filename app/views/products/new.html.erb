@@ -4,6 +4,7 @@
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :category_id, collection: @categories %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
