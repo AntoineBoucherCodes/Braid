@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   before_action :set_store, only: [:new, :delete]
 
   def index
-    @products = policy_scope(Product).order(created_at: :desc)
+    if params[:query].present?
+      @products = policy_scope(Product.search_by_name_and_description(params[:query]))
+    else
+      @products = policy_scope(Product).order(created_at: :desc)
+    end
   end
 
   def new
