@@ -1,14 +1,20 @@
 class ProductsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_product, except: [:index, :new, :create]
   before_action :set_store, only: [:new, :delete]
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = policy_scope(Product.search_by_name_and_description(params[:query]))
+    else
+      @products = policy_scope(Product).order(created_at: :desc)
+    end
   end
 
   def new
     @categories = Categorie.all.map { |categorie| [categorie.name, categorie.id] }
     @product = Product.new
+    authorize @product
   end
 
   def create
@@ -20,12 +26,15 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+    authorize @product
   end
 
   def show
+    authorize @product
   end
 
   def edit
+    authorize @product
   end
 
   def update
@@ -34,12 +43,14 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
+    authorize @product
   end
 
   def destroy
     @product.store = @store
     @product.destroy
     redirect_to store_path(@store)
+    authorize @product
   end
 
   private
@@ -53,6 +64,12 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category_id)
+    params.require(:product).permit(:name, :description, :price, :category_id, photos: [])
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 end
