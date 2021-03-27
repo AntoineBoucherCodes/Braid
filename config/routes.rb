@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :products, except: [:new, :create, :delete]
 
   get 'dashboard', to: 'dashboard#dashboard', as: 'dashboard'
+
+  resources :lobby, only: [:show, :create, :destroy]
 end
