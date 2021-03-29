@@ -20,7 +20,7 @@ class OrderItemsController < ApplicationController
     respond_to do |format|
       if @order_item.save
         format.html { redirect_to @order_item.cart,
-          notice: 'Order item was successfully created.' }
+          notice: "#{@order_item.product.name} was successfully added to your cart." }
         format.json { render :show,
           status: :created, location: @order_item }
       else
