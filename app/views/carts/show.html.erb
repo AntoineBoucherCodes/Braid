@@ -3,7 +3,7 @@
     <aside id="notice"><%= notice %></aside>
   <% end %>
 
-  <h2>Your Pragmatic Cart</h2>
+  <h2>Your Cart</h2>
   <ul>    
     <% @cart.order_items.each do |item| %>
       <li><%= item.product.name %></li>
