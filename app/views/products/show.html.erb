@@ -6,5 +6,7 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
+<%= button_to 'Add to Cart', order_items_path(product:id: @product) %>
+
 <%= link_to "Edit this product", edit_product_path(@product)  %>
 
