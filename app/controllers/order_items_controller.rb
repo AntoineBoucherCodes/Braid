@@ -3,6 +3,16 @@ class OrderItemsController < ApplicationController
   before_action :set_cart, only: [:create]
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
 
+  # GET /line_items/1
+  # GET /line_items/1.json
+  def show
+  end
+
+  # GET /line_items/new
+  def new
+    @order_item = LineItem.new
+  end
+
   def create
     product = Product.find(params[:product_id])
     @order_item = @cart.order_items.build(product: product)
@@ -19,6 +29,7 @@ class OrderItemsController < ApplicationController
           status: :unprocessable_entity }
       end
     end
+    authorize @order_item
   end
 
 end

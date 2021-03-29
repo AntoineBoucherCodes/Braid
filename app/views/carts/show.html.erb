@@ -1,0 +1,12 @@
+<div class="container">
+  <% if notice %>
+    <aside id="notice"><%= notice %></aside>
+  <% end %>
+
+  <h2>Your Pragmatic Cart</h2>
+  <ul>    
+    <% @cart.order_items.each do |item| %>
+      <li><%= item.product.name %></li>
+    <% end %>
+  </ul>
+</div>
