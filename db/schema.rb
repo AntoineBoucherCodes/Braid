@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_153443) do
+
+ActiveRecord::Schema.define(version: 2021_03_27_183821) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_03_27_153443) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "store_id", null: false
+    t.index ["store_id"], name: "index_lobbies_on_store_id"
     t.index ["user_id"], name: "index_lobbies_on_user_id"
   end
 
@@ -127,6 +131,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_153443) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "users"
   add_foreign_key "invites", "lobbies"
+  add_foreign_key "lobbies", "stores"
   add_foreign_key "lobbies", "users"
   add_foreign_key "product_amounts", "carts"
   add_foreign_key "product_amounts", "products"
