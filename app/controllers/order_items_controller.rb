@@ -32,4 +32,14 @@ class OrderItemsController < ApplicationController
     authorize @order_item
   end
 
+  private
+
+  def order_item_params
+    params.require(:order_item).permit(:product_id)
+  end
+
+  def set_order_item
+    @order_item = OrderItem.find(params[:id])
+  end
+
 end
