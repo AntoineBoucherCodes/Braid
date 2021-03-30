@@ -4,12 +4,18 @@
   <% end %>
   <ul>
     <% @stores.each do |store| %>
-      <li>
-        <%= link_to store.name, store_path(store) %> | City: <%= store.address %>
-        <br>
-        <%= store.description %>
-      </li>
-      <br>
+      <div class="card-store">
+        <% if store.photo.attached? %>
+          <%= cl_image_tag store.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://source.unsplash.com/KStSiM1UvPw/300x400">
+        <% end %>
+        <div class="card-store-infos">
+          <h2><%= link_to store.name, store_path(store) %></h2>
+          <p style="color:#51A996;"><%= store.address %></p>
+          <p><%= store.description %></strong></p>
+        </div>
+      </div>
     <% end %>
   </ul>
 </div>

@@ -1,0 +1,46 @@
+.card-store {
+  overflow: hidden;
+  height: 215px;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border: 0.1px solid #494949;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+}
+
+.card-store img {
+  height: 100%;
+  width: 215px;
+  object-fit: cover;
+  border-right: 0.1px solid #494949;
+}
+
+.card-store a {
+  color: $black;
+}
+
+.card-store h2 {
+  text-transform: uppercase;
+  margin: 0;
+
+}
+
+.card-store p {
+
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-store .card-store-infos {
+  padding: 16px;
+}
+

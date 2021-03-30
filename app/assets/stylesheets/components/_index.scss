@@ -2,3 +2,55 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "button";
+@import "card-store";
+@import "card-product";
+@import "banner";
+@import "footer";
+
+
+.container {
+  max-width: 1200px;
+  margin: 24px auto;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font;
+  background-color: $braid-orange;
+  height: 100%;
+}
+
+p {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 48px;
+}
+
+h4 {
+  font-size: 72px;
+}
+
+p, h1, h2, h3, h4, h5 {
+  font-family: $font;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
