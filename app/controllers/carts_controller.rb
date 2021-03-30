@@ -29,6 +29,17 @@ class CartsController < ApplicationController
     end
   end
 
+  def destroy
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to stores_url, 
+        notice: 'Your cart was emptied' }
+      format.json { head :no_content }
+    end
+    authorize @cart
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -43,6 +54,6 @@ class CartsController < ApplicationController
 
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to stores_path, notice: 'Invalid cart'
+      redirect_to stores_url, notice: 'Invalid cart'
     end
 end
