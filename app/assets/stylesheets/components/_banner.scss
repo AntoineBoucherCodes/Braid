@@ -1,0 +1,22 @@
+.banner {
+  margin: 150px 20px;
+}
+
+
+.banner-content {
+  flex-grow: 1;
+  align-content: left;
+}
+
+.banner-image {
+  flex-grow: 1;
+  align-content: left;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+
+
+.banner p {
+  padding: 8px 0px;
+}

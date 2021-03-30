@@ -1,39 +1,37 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "braid-logo.png" %>
+<div>
+<script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
+
+  <div class="nav-container">
+    <!-- logo -->
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "braid-logo.png" %>
     <% end %>
+    <!--search -->
+    <label class="open-search" for="open-search">
+      <i class="fas fa-search"></i>
+            <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
+    <div class="search">
+      <%= form_tag products_path, style: 'display: flex', method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "input-search", placeholder: "Search stores or products" %>
+        <button class="button-search"><i class="fas fa-search"></i></button>
+      <% end %>
+    </div>
+    </label>
+    <!-- // search -->
+    <nav class="nav-content">
+      <!-- nav -->
+      <ul class="nav-content-list">
+        <li>
+          <%= link_to root_path do %>
+            <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+            <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
+          <% end %>
+        </li>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to root_path, class: "navbar-icon" do %>
-            <%= image_tag "message-icon.png" %>
-          <% end %>
-        <li class="search-bar">
-          <%= form_tag products_path, style: 'display: flex', method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a product" %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% end %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to root_path, class: "navbar-icon" do %>
-            <%= image_tag "notification-icon.png" %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to root_path, class: "navbar-icon" do %>
-            <%= image_tag "cart-icon.png" %>
-          <% end %>
-        </li>
         <li class="nav-item dropdown">
           <%= image_tag "user-default.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -41,13 +39,20 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-
-
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
-        </li>
-      <% end %>
-    </ul>
+        <!-- call to action -->
+      </ul>
+    </nav>
+  </div>
+  <!-- nav navigation commerce -->
+  <div class="nav-container" style="height: 50px;">
+    <nav class="featured-category">
+      <ul class="nav-row">
+        <li class="nav-row-list"> <%= link_to "About us", root_path, class: "nav-row-list-link" %> </li>
+        <li class="nav-row-list"> <%= link_to "Stores", stores_path, class: "nav-row-list-link" %> </li>
+        <li class="nav-row-list"> <%= link_to "Products", products_path, class: "nav-row-list-link" %> </li>
+        <li class="nav-row-list"> <%= link_to "Categories", root_path, class: "nav-row-list-link" %> </li>
+        <li class="nav-row-list"> <%= link_to "Local", root_path, class: "nav-row-list-link" %> </li>
+      </ul>
+    </nav>
   </div>
 </div>

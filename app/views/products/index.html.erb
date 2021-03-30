@@ -1,6 +1,14 @@
 <div class="container">
-  <h1>Products</h1>
-  <% @products.each do |product| %>
-    <%= link_to product.name, product_path(product)  %>
-  <% end %>
+  <div class="cards">
+    <% @products[0..19].each do |product| %>
+      <div class="card-product">
+          <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
+        <div class="card-product-infos">
+          <h1><%= link_to product.name, product_path(product) %></h1>
+          <%= link_to "$12.99", "#", class: "btn btn-ghost" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
