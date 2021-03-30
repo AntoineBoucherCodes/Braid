@@ -6,7 +6,7 @@
   <h2>Your Cart</h2>
   <ul>    
     <% @cart.order_items.each do |item| %>
-      <li><%= item.product.name %></li>
+      <li><%= item.quantity %>&times; <%= item.product.name %></li>
     <% end %>
   </ul>
 </div>

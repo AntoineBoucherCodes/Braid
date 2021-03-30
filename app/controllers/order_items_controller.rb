@@ -15,7 +15,7 @@ class OrderItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-    @order_item = @cart.order_items.build(product: product)
+    @order_item = @cart.add_product(product)
 
     respond_to do |format|
       if @order_item.save

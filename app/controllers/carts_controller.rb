@@ -1,11 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
-  # GET /carts
-  # GET /carts.json
-  def index
-    @carts = Cart.all
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts/1
   # GET /carts/1.json
