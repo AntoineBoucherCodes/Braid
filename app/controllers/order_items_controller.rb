@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
 
   # GET /line_items/new
   def new
-    @order_item = LineItem.new
+    @order_item = OrderItem.new
   end
 
   def create
