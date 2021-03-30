@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @order_item = OrderItem.new
     authorize @product
   end
 
