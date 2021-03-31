@@ -6,5 +6,14 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
+<!-- Qty: <%= number_field_tag 'quantity', '1', :size => 2, :maxlength => 2 %>
+<%= button_to 'Add to Cart', order_items_path(product_id: @product) %> -->
+
+<%= simple_form_for @order_item do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <%= f.input :quantity, input_html: {value: '1', min: '1'} %>
+  <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+<% end %>
+
 <%= link_to "Edit this product", edit_product_path(@product)  %>
 
