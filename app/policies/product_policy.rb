@@ -9,8 +9,12 @@ class ProductPolicy < ApplicationPolicy
     true
   end
 
-  def create?
+  def new?
     true
+  end
+
+  def create?
+    record.store.user == user
   end
 
   def update?

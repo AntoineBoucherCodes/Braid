@@ -13,6 +13,10 @@ class StorePolicy < ApplicationPolicy
     true
   end
 
+  def store_owner?
+    record.user == user
+  end
+
   def update?
     record.user == user
   end

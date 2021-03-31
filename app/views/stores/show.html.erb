@@ -1,8 +1,15 @@
 <div class="container">
-  <%= link_to "Add a product", new_store_product_path(@store)  %>
+
+  <% if policy(@store).store_owner? %>
+    <%= link_to "Add a product", new_store_product_path(@store)  %>
+  <% end %>
+
   <%= link_to "Back", stores_path %>
   <br>
-  <%= link_to "Edit Store", edit_store_path %>
+  <% if policy(@store).edit? %>
+    <%= link_to "Edit Store", edit_store_path %>
+  <% end %>
+
   <h2><%= @store.name %></h2>
 
   <% if @store.photo.attached? %>

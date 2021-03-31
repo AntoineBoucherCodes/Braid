@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
     @categories = Categorie.all.map { |categorie| [categorie.name, categorie.id] }
     @product = Product.new
     authorize @product
+    # authorize @store
   end
 
   def create
@@ -47,9 +48,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.store = @store
     @product.destroy
-    redirect_to store_path(@store)
+    redirect_to store_path(@product.store)
     authorize @product
   end
 
