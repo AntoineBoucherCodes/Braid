@@ -1,16 +1,21 @@
 class LobbiesController < ApplicationController
-
   before_action :require_login, except: [:show]
+  
   def show
     @lobby = Lobby.find(params[:id])
     @lobby.store = @store
   end
 
-  def create
+  def new
     @lobby = Lobby.new
-    @user = current_user
-    @lobby.name = "#{@user.name}' lobby"
-    @lobby.user = @user
+    authorize @lobby
+  end
+
+  def create
+    @lobby = Lobby.new(lobby_params)
+    # @user = current_user
+    # @lobby.name = "#{@user.name}' lobby"
+    @lobby.user = current_user
     @lobby.save
     redirect_to lobby_path(@lobby)
   end
@@ -33,5 +38,9 @@ class LobbiesController < ApplicationController
     unless current_user
       redirect_to new_user_session_path
     end
+  end
+
+  def lobby_params
+    params.require(:lobby).permit(:name)
   end
 end
