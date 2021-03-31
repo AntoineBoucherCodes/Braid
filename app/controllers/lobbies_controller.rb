@@ -3,7 +3,7 @@ class LobbiesController < ApplicationController
   
   def show
     @lobby = Lobby.find(params[:id])
-    @lobby.store = @store
+    authorize @lobby
   end
 
   def new
@@ -18,6 +18,7 @@ class LobbiesController < ApplicationController
     @lobby.user = current_user
     @lobby.save
     redirect_to lobby_path(@lobby)
+    authorize @lobby
   end
 
   def edit
