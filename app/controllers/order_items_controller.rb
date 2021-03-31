@@ -14,10 +14,14 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    product = Product.find(params[:product_id])
-    @order_item = @cart.add_product(product)
+    product_id = params[:order_item][:product_id]
+    quantity = params[:order_item][:quantity].to_i
+    # product = Product.find(params[:product_id])
+    product = Product.find(product_id)
+    @order_item = @cart.add_product(product, quantity)
 
     respond_to do |format|
+      # @order_item.quantity = params[:quantity]
       if @order_item.save
         format.html { redirect_to @order_item.cart,
           notice: "#{@order_item.product.name} was successfully added to your cart." }
@@ -35,11 +39,10 @@ class OrderItemsController < ApplicationController
   private
 
   def order_item_params
-    params.require(:order_item).permit(:product_id)
+    params.require(:order_item).permit(:product_id, :quantity)
   end
 
   def set_order_item
     @order_item = OrderItem.find(params[:id])
   end
-
 end
