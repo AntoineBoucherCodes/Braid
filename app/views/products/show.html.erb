@@ -1,7 +1,26 @@
 <div class="container">
-  <h1> <%= @product.name %> </h1>
 
-  <h2> <%= @product.description %> </h2>
+  <div class="store-info-container">
+
+    <% if @product.store.photo.attached? %>
+      <%= cl_image_tag store.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://source.unsplash.com/KStSiM1UvPw/300x400">
+    <% end %>
+    <div class="store-info">
+      <h1><%= @product.store.name %></h1>
+      <p><%= @product.store.address %></p>
+      <p><%= @product.store.description %></p>
+    </div>
+
+    <p><%= @product.store.discount_breakpoints %></p>
+
+  </div>
+
+  <h1 class="product-title"> <%= @product.name %> </h1>
+  <p class="product-description"> <%= @product.description %> </p>
+
+
 
   <% @product.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 612, width: 379, crop: :fill %>
