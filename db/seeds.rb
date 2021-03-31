@@ -39,7 +39,12 @@ puts "#{user_dummy.email} was created."
 puts ''
 
 puts "Creating dummy category."
-category = Categorie.create(name: 'dummy category')
+
+category = Categorie.create(name: 'Dummny category')
+
+30.times do
+  Categorie.create(name: Faker::Commerce.department)
+end
 
 puts ''
 
@@ -61,9 +66,9 @@ puts "Creating stores..."
   puts "Creating a few products, hold on...."
   10.times do
     new_product = Product.create(
-      name: Faker::Hipster.word,
+      name: Faker::Commerce.product_name,
       description: Faker::Hipster.sentence,
-      price: Faker::Number.decimal(l_digits: 2),
+      price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
       store_id: new_store.id,
       category_id: category.id
     )

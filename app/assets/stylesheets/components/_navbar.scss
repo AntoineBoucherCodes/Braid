@@ -1,17 +1,158 @@
-.navbar-lewagon {
+* {
+  box-sizing: border-box;
+}
+
+
+
+.navbar-brand img {
+  width: 150px;
+}
+
+strong {
+  padding: 0;
+  margin: 0;
+}
+
+label,
+a {
+  text-decoration: none;
+  color: $color-text;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+// inner container
+.nav-container {
+  align-items: center;
+  display: flex;
+  height: 70px;
   justify-content: space-between;
-  background: $braid-orange;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  width: 100%;
+
+  // search
+  // open search
+  .open-search {
+    border-radius: 3px;
+    flex: auto;
+    max-width: 700px;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+
+    .fa-search {
+      display: none;
+
+    }
+    .input-open-search {
+      display: none;
+
+      &:checked ~ .search {
+        display: block;
+      }
+    }
+  }
+  // container search
+  .search {
+    // input search effects
+    .input-search {
+      border-radius: 8px;
+      border: 1px solid #e1e1e1;
+      height: 40px;
+      padding: 0 70px 0 15px;
+      width: 100%;
+      }
+
+    // open search menu mobile
+    .button-search {
+      background: none;
+      border-radius: 8px;
+      border: none;
+      color: C4C4C4;
+      cursor: pointer;
+      padding: 12px 19px;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      .fa-search {
+        display: block;
+      }
+    }
+  }
+
+  .nav-item {
+  padding: 15px 20px;
+  }
+
+  .nav-content{
+    // list nav
+    .nav-content-list{
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      margin: auto;
+      .nav-content-item {
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin: 0 5px;
+
+        transition: 100ms all linear 0s;
+
+      }
+      // nav links menu
+
+    }
+  }
+}
+// container navigation
+.nav-container {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
   border-bottom: 0.1px solid #494949;
+
+   // ul list category featured
+  .nav-row {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+
+
+    // items categories
+    .nav-row-list {
+      flex: auto;
+      .nav-row-list-link {
+        align-items: center;
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        transition: 100ms all linear 0s;
+
+      }
+    }
+  }
+   // list category featured
+  .featured-category {
+    flex: auto;
+    margin: 0 15px 0 0;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 110px;
-}
 
-.navbar-lewagon .navbar-icon img {
-  heigth: 20px;
-}
+
+
+
+
+
