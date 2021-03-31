@@ -15,6 +15,12 @@ class LobbiesController < ApplicationController
     redirect_to lobby_path(@lobby)
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     @lobby = Lobby.find(params[:id])
     @lobby.destroy

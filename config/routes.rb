@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#dashboard', as: 'dashboard'
 
-  resources :lobby, only: [:show, :create, :destroy]
+  resources :lobbies
 end

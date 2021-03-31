@@ -3,3 +3,17 @@
 <h2><%= @store.name %></h2>
 
 <h3><%= @store.description %></h3>
+
+<% @lobby.users.each do |user| %>
+  <h3> <%= user.email %> </h3>
+  <div> 
+    <%= user.cart[-1].order_items.each do |order_item| %>
+      <tr>
+        <td class="quantity"><%= order_item.quantity %></td>
+        <td><%= order_item.product.name %></td>
+        <td class="price"><%= number_to_currency(order_item.total_price) %></td>
+      </tr>
+    <% end %>
+  </div>
+  <br>
+<% end %>
