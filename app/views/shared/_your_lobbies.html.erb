@@ -1,21 +1,20 @@
 <h2>YOUR LOBBIES</h2>
 
-<table class="table">
+<table class="table"> 
   <thead>
     <tr>
       <th scope="col">Lobby Name</th>
-      <th scope="col">Date</th>
-      <th scope="col">Status</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Number of Participants</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">LV gang rise up</th>
-      <td>2021-12-25</td>
-      <td>
-        <div class="btn btn-success">Accept</div>
-        <div class="btn btn-danger">Decline</div>
-      </td>
-    </tr>
-  </tbody>
+  <% @lobbies.each do |lobby| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= link_to lobby.name, lobby_path(lobby) %></th>
+        <td><%= lobby.created_at %></td>
+        <td><%= lobby.lobby_participants.count + 1 %></td>
+      </tr>
+    </tbody>
+  <% end %>
 </table>

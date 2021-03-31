@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @stores = policy_scope(Store).order(created_at: :desc)
 
     # Your Lobbies
+    @lobbies = policy_scope(Lobby).order(created_at: :desc)
 
     # Your Single Buy orders
 
