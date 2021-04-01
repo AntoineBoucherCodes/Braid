@@ -1,21 +1,45 @@
 <div class="container">
+
+  <h3 style="padding-top: 25px; text-align: center;">Handpicked Stores</h3>
+  <p style="padding-bottom: 25px; text-align: center;">Shop from hundreds of your favorite stores</p>
+
+  <div class="row" style="align-items:flex-start;">
+
+   <div class="col-lg-3" style="background-color: #E7E4D3; padding: 15px;">
+
+
+    <div class="list-group">
+      <%= link_to "Wellness 🌿", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Clothing 👕", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Food 🐓", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Beauty ✨", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Home 🏠", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Footwear 👟", stores_path, class: "btn btn-ghost" %>
+      <%= link_to "Pets 🐱", stores_path, class: "btn btn-ghost" %>
+    </div>
+
+    </div>
+
+  <div class="col-lg-9">
+    <ul>
+      <% @stores.each do |store| %>
+        <div class="card-store">
+          <% if store.photo.attached? %>
+            <%= cl_image_tag store.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src="https://source.unsplash.com/KStSiM1UvPw/300x400">
+          <% end %>
+          <div class="card-store-infos">
+            <h2><%= link_to store.name, store_path(store) %></h2>
+            <p style="color:#51A996;"><%= store.address %></p>
+            <p><%= store.description %></strong></p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
   <% if policy(Store).create? %>
     <%= link_to "Create a new store", new_store_path %>
   <% end %>
-  <ul>
-    <% @stores.each do |store| %>
-      <div class="card-store">
-        <% if store.photo.attached? %>
-          <%= cl_image_tag store.photo.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-          <img src="https://source.unsplash.com/KStSiM1UvPw/300x400">
-        <% end %>
-        <div class="card-store-infos">
-          <h2><%= link_to store.name, store_path(store) %></h2>
-          <p style="color:#51A996;"><%= store.address %></p>
-          <p><%= store.description %></strong></p>
-        </div>
-      </div>
-    <% end %>
-  </ul>
+</div>
 </div>
