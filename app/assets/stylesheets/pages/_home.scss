@@ -1,1 +1,50 @@
 // Specific CSS for your home-page
+
+.home-background {
+  background-image: image-url('braid-purple.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+
+.container-home {
+  width: 100%;
+  margin: auto;
+  padding: 50px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.col-6 img {
+  width:100%;
+}
+
+
+.categories {
+  margin: 25px 0;
+}
+
+
+.categories-card img {
+  width: 364px;
+  height: 364px;
+}
+
+.small-container {
+  max-width: 2000px;
+  min-width: 1200px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: 125px;
+  margin-bottom: 125px;
+
+}
+
+
+
