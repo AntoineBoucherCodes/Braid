@@ -1,0 +1,34 @@
+<h1>LOBBY INVITATIONS</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Lobby Name</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Creation date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lobby_participants.each do |lobby_participant| %>
+      <tr>
+        <th scope="row"><%= lobby_participant.lobby.name %></th>
+        <td><%= lobby_participant.lobby.user.email %></td>
+        <td><%= lobby_participant.lobby.created_at %></td>
+
+        <% if lobby_participant.invitation_status == 'Pending' %>
+          <td>
+            <%= link_to "Accept", lobby_accept_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to accept this invitation?" }, class: 'btn btn-success btn-sm' %>
+            <%= link_to "Decline", lobby_decline_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" }, class: 'btn btn-danger btn-sm' %>
+          </td>
+
+        <% elsif lobby_participant.invitation_status == 'Accepted' %>
+          <td>Accepted</td>
+        <% else %>
+          <td>Declined</td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
