@@ -1,0 +1,41 @@
+table {
+  border-collapse: collapse;
+}
+td {
+  padding: 0.5em;
+}
+td.quantity {
+  white-space: nowrap;
+}
+td.quantity::after {
+  content: " ×";
+}
+td.price {
+  font-weight: bold;
+  text-align: right;
+}
+tfoot {
+  th, th.price {
+    font-weight: bold;
+    padding-top: 1em;
+  }
+  th {
+    text-align: right;
+  }
+  th.price {
+    border-top: solid thin;
+  }
+}
+
+// article {
+//   h2 {
+//     margin-top: 0;
+//   }
+//   background: white;
+//   border-radius: 0.5em;
+//   margin: 1em;
+//   padding: 1.414em;
+//   @media (min-width: 30em) {
+//     margin: 0; // desktop doesn't need this margin
+//   }
+// }
