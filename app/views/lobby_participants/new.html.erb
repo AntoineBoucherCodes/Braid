@@ -4,7 +4,7 @@
       <h1>Invite a friend to <%= @lobby.name %>!</h1>
 
       <%= simple_form_for [ @lobby, @lobby_participant ] do |f| %>
-        <%= f.association :user, collection: User.all, label_method: :email, prompt: 'Select a user' %>
+        <%= f.input :user_id, collection: User.all, label_method: :email, prompt: 'Select a user' %>
         <%= f.button :submit, "Invite!", class: 'btn btn-primary' %>
       <% end %>
     </div>
