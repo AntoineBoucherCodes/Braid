@@ -21,7 +21,10 @@
     <nav class="nav-content">
       <!-- nav -->
       <ul class="nav-content-list">
-        <li><%= link_to 'Dashboard', dashboard_path %></li>
+        <li>
+          <%= link_to dashboard_path do %>
+            <i class="fas fa-columns" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
+          <% end %>
         <li>
           <%= link_to root_path do %>
             <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
@@ -34,7 +37,8 @@
         <li class="nav-item dropdown">
           <%= image_tag "user-default.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Create", "#", class: "dropdown-item" %>
+            <%= link_to "Create Store", "#", class: "dropdown-item" %>
+            <%= link_to "Edit Store", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
