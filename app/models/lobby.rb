@@ -17,5 +17,16 @@ class Lobby < ApplicationRecord
     end
     total = user_total + participants_total
   end
-  
+
+  def ready?
+    status = false
+    self.lobby_participants.each do |lobby_participant|
+      if lobby_participant.invitation_status == 'Pending'
+        return status
+      else
+        status = true
+      end
+    end
+    return status
+  end
 end

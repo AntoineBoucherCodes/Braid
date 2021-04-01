@@ -1,40 +1,30 @@
 <div class="container">
+  <% lobby_store = @lobby.user.carts.last.order_items.first.product.store.name %>
+
   <h1>Welcome to <%= @lobby.name %> !</h1>
   <h5>Owner: <%= @lobby.user.email %></h5>
+  <h5>Lobby's Store: <%= lobby_store %></h5>
   <br>
   <h2><%# @store.name %></h2>
 
   <h3><%# @store.description %></h3>
 
-  <div class="">
-    <h1>Your Cart</h1>
-    <div> 
-      <%= @lobby.user.carts.last.order_items.each do |order_item| %>
-        <p>
-          <%= order_item.quantity %>x 
-          <%= order_item.product.name %>
-          <br>
-          Total: <%= number_to_currency(order_item.total_price) %>
-        </p>
-      <% end %>
-    </div>
-  </div>
+  <div><%= render 'lobbies/your_cart' %></div>
   <br>
 
-  
-  <div>
-    <%= render 'lobbies/lobby_participant_carts' %>
-  </div>
-
+  <div><%= render 'lobbies/lobby_participant_carts' %></div>
   <br>
+
   <%= link_to 'Invite a friend to the Lobby!', new_lobby_lobby_participant_path(@lobby), class: 'btn btn-primary' %>
 
   <div>
     <br>
     <h1>This Lobby's Total: <%= number_to_currency(@lobby.total_price) %></h1>
+    <h2></h2>
   </div>
+
+  <div><br><%= render 'lobbies/confirm_order' %></div>
 </div>
 
 <br>
 <%= link_to "Delete this lobby", lobby_path(@lobby), method: :delete, data: { confirm: "Are you sure you want to delete #{@lobby.name}?" } %>
-

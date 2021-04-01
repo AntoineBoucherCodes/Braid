@@ -1,0 +1,6 @@
+<% if @lobby.ready? %>
+  <%= link_to "Confirm Order", '', class: 'btn btn-primary' %>
+<% else %>
+  <button type="button" class="btn btn-secondary" disabled>Confirm Order</button>
+  <p>*All participants must have accepted the lobby invitation before you can confirm your order.*</p>
+<% end %>
