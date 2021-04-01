@@ -6,7 +6,6 @@
   border-radius: 8px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 16px;
-  margin-top: 12px;
 }
 
 
@@ -16,15 +15,30 @@
   padding: 16px;
   border-radius: 4px;
   background: $braid-green;
-  transition: background 0.3s ease;
   width: 180px;
   height: 60px;
 }
 
-
-.btn-flat:hover {
-  background: #1BCB7F;
+.btn-black {
   color: white;
+  padding: 5px;
+  border-radius: 0px;
+  background: $black;
+  width: 134px;
+  height: 40px;
+  border-radius: 0px;
+}
+
+
+.btn:hover {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.btn-price {
+  border-radius: 0px;
+  border: 1px solid #7C7D7D;
+  margin-top: 5px;
 }
 
 
@@ -33,6 +47,8 @@
   height: 32px;
   border: 1px solid #000000;
   box-sizing: border-box;
+  border-radius: 0px;
+  padding: 5px;
 }
 
 .btn-breakpoint-one{
@@ -42,6 +58,8 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   color: white;
+  border-radius: 0px;
+  padding: 5px;
 }
 .btn-breakpoint-two{
   width: 88px;
@@ -50,6 +68,8 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   color: white;
+  border-radius: 0px;
+
 }
 .btn-breakpoint-three{
   width: 88px;
@@ -58,6 +78,7 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   color: white;
+  border-radius: 0px;
 }
 .btn-breakpoint-four{
   width: 88px;
@@ -66,4 +87,5 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   color: white;
+  border-radius: 0px;
 }
