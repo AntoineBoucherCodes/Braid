@@ -10,6 +10,7 @@ class StoresController < ApplicationController
     # @products = Product.where(params[:product_id])
     @products = @store.products
     authorize @store
+    store_owner
   end
 
   def new
@@ -26,6 +27,10 @@ class StoresController < ApplicationController
     else
       render :new
     end
+    authorize @store
+  end
+
+  def store_owner
     authorize @store
   end
 
