@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   end
   resources :products, except: [:new, :create, :delete]
 
-  get 'dashboard', to: 'dashboard#dashboard', as: 'dashboard'
+  get "dashboard", to: "dashboard#dashboard", as: "dashboard"
 
-  resources :lobbies
+  resources :lobbies do
+    recources :lobby_participants
+  end
+
+  patch "lobbies/:id/accept", to: "dashboard#accept", as: "lobby_accept"
+  patch "lobbies/:id/decline", to: "dashboard#decline", as: "lobby_decline"
 end
