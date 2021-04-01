@@ -12,4 +12,8 @@ class LobbyParticipantPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    true
+  end
 end

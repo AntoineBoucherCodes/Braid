@@ -16,6 +16,12 @@ class LobbyParticipantsController < ApplicationController
     authorize @lobby_participant
   end
 
+  def destroy
+    @lobby.destroy
+    redirect_to dashboard_path
+    authorize @lobby
+  end
+  
   private
 
   def require_login
