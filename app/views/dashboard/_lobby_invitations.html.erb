@@ -1,18 +1,18 @@
-<h1>LOBBY INVITATIONS</h1>
+<h2>LOBBY INVITATIONS</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Lobby Name</th>
       <th scope="col">Owner</th>
-      <th scope="col">Creation date</th>
+      <th scope="col">Date Created</th>
       <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
     <% @lobby_participants.each do |lobby_participant| %>
       <tr>
-        <th scope="row"><%= lobby_participant.lobby.name %></th>
+        <th scope="row"><%= link_to lobby_participant.lobby.name, lobby_path(lobby_participant.lobby) %></th>
         <td><%= lobby_participant.lobby.user.email %></td>
         <td><%= lobby_participant.lobby.created_at %></td>
 
