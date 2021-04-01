@@ -21,15 +21,14 @@
     <nav class="nav-content">
       <!-- nav -->
       <ul class="nav-content-list">
+        <li><%= link_to 'Dashboard', dashboard_path %></li>
         <li>
           <%= link_to root_path do %>
             <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
           <% end %>
         </li>
         <li>
-          <%= link_to root_path do %>
-            <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
-          <% end %>
+          <%= render 'shared/cart_button' %>
         </li>
 
         <li class="nav-item dropdown">

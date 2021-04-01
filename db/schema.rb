@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_183821) do
+
+ActiveRecord::Schema.define(version: 2021_03_31_223334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,9 +65,28 @@ ActiveRecord::Schema.define(version: 2021_03_27_183821) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.bigint "store_id", null: false
-    t.index ["store_id"], name: "index_lobbies_on_store_id"
     t.index ["user_id"], name: "index_lobbies_on_user_id"
+  end
+
+  create_table "lobby_participants", force: :cascade do |t|
+    t.string "invitation_status", default: "Pending"
+    t.bigint "lobby_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lobby_id"], name: "index_lobby_participants_on_lobby_id"
+    t.index ["user_id"], name: "index_lobby_participants_on_user_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "price"
+    t.integer "quantity", default: 0
+    t.index ["cart_id"], name: "index_order_items_on_cart_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -76,16 +96,6 @@ ActiveRecord::Schema.define(version: 2021_03_27_183821) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
-  create_table "product_amounts", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "product_id", null: false
-    t.bigint "cart_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_product_amounts_on_cart_id"
-    t.index ["product_id"], name: "index_product_amounts_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -129,10 +139,11 @@ ActiveRecord::Schema.define(version: 2021_03_27_183821) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "users"
   add_foreign_key "invites", "lobbies"
-  add_foreign_key "lobbies", "stores"
   add_foreign_key "lobbies", "users"
-  add_foreign_key "product_amounts", "carts"
-  add_foreign_key "product_amounts", "products"
+  add_foreign_key "lobby_participants", "lobbies"
+  add_foreign_key "lobby_participants", "users"
+  add_foreign_key "order_items", "carts"
+  add_foreign_key "order_items", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"

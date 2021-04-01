@@ -1,0 +1,20 @@
+<h2>YOUR LOBBIES</h2>
+
+<table class="table"> 
+  <thead>
+    <tr>
+      <th scope="col">Lobby Name</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Number of Participants</th>
+    </tr>
+  </thead>
+  <% @lobbies.each do |lobby| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= link_to lobby.name, lobby_path(lobby) %></th>
+        <td><%= lobby.created_at %></td>
+        <td><%= lobby.lobby_participants.count + 1 %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
