@@ -20,7 +20,9 @@
           <p class='product-store-description mb-0'><%= @product.store.description %></p>
         </div>
         <div class="product-breakpoint ml-5">
-          <p><%= @product.store.discount_breakpoints %></p>
+          <p>Breakpoints</p>
+          <a class="btn btn-breakpoint-price mt-0" href="#"><%= @product.store.discount_breakpoints %></a>
+          <a class="btn btn-breakpoint-one" href="#">10% off</a>
         </div>
       </div>
       <hr class="hr-product">
