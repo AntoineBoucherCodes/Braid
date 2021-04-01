@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 50px; margin-bottom: 50px">
   <div class="row product-mt">
     <div class="col-4">
       <% @product.photos.each do |photo| %>
@@ -15,39 +15,36 @@
           <% end %>
         </div>
         <div class="product-store-info">
-          <h1 class='product-store-name mb-0'><%= @product.store.name %></h1>
-          <p class='product-store-address mb-0'><%= @product.store.address %></p>
-          <p class='product-store-description mb-0'><%= @product.store.description %></p>
+          <h1 class='mb-0'><%= @product.store.name %></h1>
+          <p class='mb-0'style="color:#51A996;"><%= @product.store.address %></p>
+          <p class='mb-0'><%= @product.store.description %></p>
         </div>
         <div class="product-breakpoint ml-5">
           <p>Breakpoints</p>
-          <a class="btn btn-breakpoint-price mt-0" href="#"><%= @product.store.discount_breakpoints %></a>
+          <a class="btn btn-breakpoint-price" href="#"><%= @product.store.discount_breakpoints %></a>
           <a class="btn btn-breakpoint-one" href="#">10% off</a>
         </div>
       </div>
       <hr class="hr-product">
       <div class="product-info">
-        <h1 class="product-title mb-0"> <%= @product.name %> </h1>
-        <a class="btn btn-ghost mb-3" href="#"><%= @product.price %></a>
-        <p class="product-description"> <%= @product.description %> </p>
+        <h3 class="mb-0"> <%= @product.name %> </h3>
+        <a class="btn btn-price mt-3 mb-3" href="#"><%= number_to_currency(@product.price) %></a>
+        <p style="margin-bottom: 80px;"> <%= @product.description %> </p>
+        <%= simple_form_for @order_item do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.input :quantity, input_html: {value: '1', min: '1', style: 'width:100px; border-color: black;'}  %>
+          <%= f.submit 'Add to Cart', class: 'btn btn-black', style: 'margin-bottom:15px;' %>
+        <% end %>
+        <%= link_to "Edit this product", edit_product_path(@product)  %>
+        <%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure you want to delete #{@product.name}?" }  %>
       </div>
     </div>
   </div>
 
-  <%= link_to "Edit this product", edit_product_path(@product)  %>
 
-  <%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure you want to delete #{@product.name}?" }  %>
 </div>
 
 
 
-<!-- Qty: <%= number_field_tag 'quantity', '1', :size => 2, :maxlength => 2 %>
-<%= button_to 'Add to Cart', order_items_path(product_id: @product) %> -->
 
-<%= simple_form_for @order_item do |f| %>
-  <%= f.hidden_field :product_id, value: @product.id %>
-  <%= f.input :quantity, input_html: {value: '1', min: '1'} %>
-  <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
-<% end %>
 
-<%= link_to "Edit this product", edit_product_path(@product)  %>
