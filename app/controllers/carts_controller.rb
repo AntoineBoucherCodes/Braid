@@ -33,8 +33,8 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to stores_url, 
-        notice: 'Your cart was emptied' }
+      format.html { redirect_to stores_url,
+        notice: 'Your cart was emptied.' }
       format.json { head :no_content }
     end
     authorize @cart

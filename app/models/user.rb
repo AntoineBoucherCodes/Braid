@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :stores
   has_many :carts
+  has_many :lobbies
+  has_many :lobby_participants
 end

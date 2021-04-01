@@ -1,0 +1,11 @@
+<h1>Your Cart</h1>
+<div> 
+  <%= @lobby.user.carts.last.order_items.each do |order_item| %>
+    <p>
+      <%= order_item.quantity %>x 
+      <%= order_item.product.name %>
+      <br>
+      Total: <%= number_to_currency(order_item.total_price) %>
+    </p>
+  <% end %>
+</div>

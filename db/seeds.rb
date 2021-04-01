@@ -8,9 +8,21 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Cleaning all the products"
+puts "Destroying all order items..."
+OrderItem.delete_all if Rails.env.development?
+puts "All order items were destroyed."
 
+puts ''
+
+puts "Destroying all carts..."
+Cart.delete_all if Rails.env.development?
+puts "All carts were destroyed."
+
+puts ''
+
+puts "Destroying all the products..."
 Product.delete_all if Rails.env.development?
+puts "All products were destroyed."
 
 puts ''
 
@@ -26,21 +38,26 @@ puts "All users were destroyed."
 
 puts ''
 
-puts "Cleaning all the categories"
-
+puts "Destroying all the categories..."
 Categorie.delete_all if Rails.env.development?
+puts "All categories were destroyed."
 
 puts ''
 
-puts "Creating dummy user."
+puts "Creating 3 dummy users."
 user_dummy = User.create(email: "dummy@user.com", password: "123456")
 puts "#{user_dummy.email} was created."
+
+user_dummy_two = User.create(email: "dummy2@user.com", password: "123456")
+puts "#{user_dummy_two.email} was created."
+
+user_dummy_three = User.create(email: "dummy3@user.com", password: "123456")
+puts "#{user_dummy_three.email} was created."
 
 puts ''
 
 puts "Creating dummy category."
-
-category = Categorie.create(name: 'Dummny category')
+category = Categorie.create(name: 'Dummy category')
 
 30.times do
   Categorie.create(name: Faker::Commerce.department)
@@ -63,7 +80,8 @@ puts "Creating stores..."
 10.times do
   new_store = create_store(user_dummy)
   puts "Store #{new_store.id} was created."
-  puts "Creating a few products, hold on...."
+  puts ''
+  puts "Creating a few products, hold on..."
   10.times do
     new_product = Product.create(
       name: Faker::Commerce.product_name,
