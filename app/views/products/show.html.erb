@@ -1,30 +1,36 @@
 <div class="container">
-
-  <div class="store-info-container">
-
-    <% if @product.store.photo.attached? %>
-      <%= cl_image_tag store.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <img src="https://source.unsplash.com/KStSiM1UvPw/300x400">
-    <% end %>
-    <div class="store-info">
-      <h1><%= @product.store.name %></h1>
-      <p><%= @product.store.address %></p>
-      <p><%= @product.store.description %></p>
+  <div class="row product-mt">
+    <div class="col-4">
+      <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 612, width: 379, crop: :fill %>
+      <% end %>
     </div>
-
-    <p><%= @product.store.discount_breakpoints %></p>
-
+    <div class="col ml-4">
+      <div class="store-info-container">
+        <div class="picture-product-store">
+          <% if @product.store.photo.attached? %>
+            <%= cl_image_tag store.photo.key, height: 125, width: 125, crop: :fill, class:"product-store" %>
+          <% else %>
+            <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="product-store">
+          <% end %>
+        </div>
+        <div class="product-store-info">
+          <h1 class='product-store-name mb-0'><%= @product.store.name %></h1>
+          <p class='product-store-address mb-0'><%= @product.store.address %></p>
+          <p class='product-store-description mb-0'><%= @product.store.description %></p>
+        </div>
+        <div class="product-breakpoint ml-5">
+          <p><%= @product.store.discount_breakpoints %></p>
+        </div>
+      </div>
+      <hr class="hr-product">
+      <div class="product-info">
+        <h1 class="product-title mb-0"> <%= @product.name %> </h1>
+        <a class="btn btn-ghost mb-3" href="#"><%= @product.price %></a>
+        <p class="product-description"> <%= @product.description %> </p>
+      </div>
+    </div>
   </div>
-
-  <h1 class="product-title"> <%= @product.name %> </h1>
-  <p class="product-description"> <%= @product.description %> </p>
-
-
-
-  <% @product.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 612, width: 379, crop: :fill %>
-  <% end %>
 
   <%= link_to "Edit this product", edit_product_path(@product)  %>
 
