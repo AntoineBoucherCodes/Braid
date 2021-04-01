@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#dashboard", as: "dashboard"
 
   resources :lobbies do
-    recources :lobby_participants
+    resources :lobby_participants
   end
 
   patch "lobbies/:id/accept", to: "dashboard#accept", as: "lobby_accept"

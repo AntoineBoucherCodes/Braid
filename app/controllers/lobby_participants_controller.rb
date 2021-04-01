@@ -1,0 +1,2 @@
+class LobbyParticipantsController < ApplicationController
+end
