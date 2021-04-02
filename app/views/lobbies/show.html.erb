@@ -24,7 +24,7 @@
     <p>
       <%= lobby_store.name %>'s discount breakpoint: <%= number_to_currency(lobby_store.discount_breakpoints) %>
     </p>
-    
+
     <br>
     <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
       <p>Congratulations! This lobby's total cart amount qualifies for a 15% discount!</p>
