@@ -22,6 +22,30 @@
           <%= lobby_store.name %>'s discount breakpoint: <%= number_to_currency(lobby_store.discount_breakpoints) %>
         </p>
 
+  <div><%= render 'lobbies/your_cart' %></div>
+  <br>
+
+  <div><%= render 'lobbies/lobby_participant_carts' %></div>
+  <br>
+
+  <%= link_to 'Invite a friend to the Lobby!', new_lobby_lobby_participant_path(@lobby), class: 'btn btn-primary' %>
+
+  <%# To do: turn the contents of this div into a partial once the proper logic is implemented to clean up this page %>
+  <div>
+    <br>
+    <h1>This Lobby's Total: <%= number_to_currency(@lobby.total_price) %></h1>
+    <p>
+      <%= lobby_store.name %>'s discount breakpoint: <%= number_to_currency(lobby_store.discount_breakpoints) %>
+    </p>
+
+    <br>
+    <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
+      <p>Congratulations! This lobby's total cart amount qualifies for a 15% discount!</p>
+      <h1>Your new Lobby's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.15)) %></h1>
+    <% else %>
+      <p>
+        Your order does not qualify for a discount.
+        
         <br>
         <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
           <p>Congratulations! This lobby's total cart amount qualifies for a 15% discount!</p>
