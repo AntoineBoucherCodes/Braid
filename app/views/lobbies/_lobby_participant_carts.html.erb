@@ -3,18 +3,16 @@
   <h5><%= lobby_participant.user.email %></h5>
   <p>Invitation status: <%= lobby_participant.invitation_status %></p>
   <p>Their cart: <%= lobby_participant.cart %></p>
-  
+
   <% if lobby_participant.cart.nil? %>
     <p>This participant's cart is empty.</p>
   <% else %>
-    <div> 
-      <%= lobby_participant.cart.order_items.each do |order_item| %>
-        <p>
-          <%= order_item.quantity %>x 
-          <%= order_item.product.name %>
-          <br>
-          Total: <%= number_to_currency(order_item.total_price) %>
-        </p>
+    <div>
+      <% lobby_participant.cart.order_items.each do |order_item| %>
+        <ul>
+          <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
+          <li>Total: <%= number_to_currency(order_item.total_price) %></li>
+        </ul>
       <% end %>
     </div>
   <% end %>
