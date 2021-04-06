@@ -21,13 +21,13 @@ puts "All carts were destroyed."
 puts ''
 
 puts "Destroying all lobby_participants..."
-LobbyParticipant.delete_all if Rails.env.development?
+LobbyParticipant.delete_all
 puts "All Lobby Participants were destroyed."
 
 puts ''
 
 puts "Destroying all lobbies..."
-Lobby.delete_all if Rails.env.development?
+Lobby.delete_all
 puts "All Lobbies were destroyed."
 
 puts ''
