@@ -1,28 +1,57 @@
 <div class="container">
 
+  <div class="banner">
+    <% if @store.photo.attached? %>
+      <%= cl_image_tag @store.photo.key, height: 300, width: 300, crop: :thumb %>
+    <% else %>
+      <%= image_tag "product-4.png" %>
+    <% end %>
+  </div>
+
+  <div class="store-info-container" style="margin: 20px 0px">
+    <div class="picture-product-store">
+      <% if @store.photo.attached? %>
+        <%= cl_image_tag store.photo.key, height: 125, width: 125, crop: :fill, class:"product-store" %>
+      <% else %>
+        <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="product-store">
+      <% end %>
+    </div>
+    <div class="product-store-info">
+      <h1 class='mb-0'><%= @store.name %></h1>
+      <p class='mb-0'style="color:#51A996;"><%= @store.address %></p>
+      <p class='mb-0'><%= @store.description %></p>
+    </div>
+    <div class="product-breakpoint ml-5">
+      <p>Breakpoints</p>
+      <a class="btn btn-breakpoint-price" href="#"><%= number_to_currency(@store.discount_breakpoints) %></a>
+      <a class="btn btn-breakpoint-one" href="#">10% off</a>
+    </div>
+  </div>
+
+  <hr class="hr-product" style="margin-bottom: 20px">
+
+  <row>
+    <div class="col-12">
+      <% @products[0..17].each do |product| %>
+        <div class="card-product" style="margin-bottom: 15px">
+          <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
+          <div class="card-product-infos">
+            <h1><%= link_to product.name, product_path(product) %></h1>
+            <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-price" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </row>
+
   <% if policy(@store).store_owner? %>
     <%= link_to "Add a product", new_store_product_path(@store)  %>
   <% end %>
 
-  <%= link_to "Back", stores_path %>
   <br>
   <% if policy(@store).edit? %>
     <%= link_to "Edit Store", edit_store_path %>
   <% end %>
-
-  <h2><%= @store.name %></h2>
-
-  <% if @store.photo.attached? %>
-    <%= cl_image_tag @store.photo.key, height: 300, width: 300, crop: :thumb %>
-  <% else %>
-    <%= link_to "Please upload an image for this store", edit_store_path %>
-  <% end %>
-  <p>Address: <%= @store.address %></p>
-  <p>Description: <%= @store.description %></p>
-  <% @products.each do |product| %>
-    <h2><%= link_to product.name, product_path(product) %>,</h2>
-    <p><%= product.description %></p>
-  <% end %>
-
   <%= link_to "Delete this shop", store_path(@store), method: :delete, data: { confirm: "Are you sure you want to delete #{@store.name}?" } %>
 </div>
+

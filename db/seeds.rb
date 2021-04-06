@@ -9,37 +9,37 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Destroying all order items..."
-OrderItem.delete_all if Rails.env.development?
+OrderItem.delete_all
 puts "All order items were destroyed."
 
 puts ''
 
 puts "Destroying all carts..."
-Cart.delete_all if Rails.env.development?
+Cart.delete_all
 puts "All carts were destroyed."
 
 puts ''
 
 puts "Destroying all the products..."
-Product.delete_all if Rails.env.development?
+Product.delete_all
 puts "All products were destroyed."
 
 puts ''
 
 puts "Destroying all stores..."
-Store.delete_all if Rails.env.development?
+Store.delete_all
 puts "All stores were destroyed."
 
 puts ''
 
 puts "Destroying all users..."
-User.delete_all if Rails.env.development?
+User.delete_all
 puts "All users were destroyed."
 
 puts ''
 
 puts "Destroying all the categories..."
-Categorie.delete_all if Rails.env.development?
+Categorie.delete_all
 puts "All categories were destroyed."
 
 puts ''
