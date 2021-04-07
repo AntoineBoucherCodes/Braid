@@ -21,13 +21,13 @@ puts "All carts were destroyed."
 puts ''
 
 puts "Destroying all lobby_participants..."
-LobbyParticipant.delete_all if Rails.env.development?
+LobbyParticipant.delete_all
 puts "All Lobby Participants were destroyed."
 
 puts ''
 
 puts "Destroying all lobbies..."
-Lobby.delete_all if Rails.env.development?
+Lobby.delete_all
 puts "All Lobbies were destroyed."
 
 puts ''
@@ -57,13 +57,13 @@ puts "All categories were destroyed."
 puts ''
 
 puts "Creating 3 dummy users."
-user_dummy = User.create(email: "antoine@user.com", password: "123456")
+user_dummy = User.create(email: "antoine@user.com", password: "123456", username: "Antoine")
 puts "#{user_dummy.email} was created."
 
-user_dummy_two = User.create(email: "paul@user.com", password: "123456")
+user_dummy_two = User.create(email: "paul@user.com", password: "123456", username: "Paul")
 puts "#{user_dummy_two.email} was created."
 
-user_dummy_three = User.create(email: "patrick@user.com", password: "123456")
+user_dummy_three = User.create(email: "patrick@user.com", password: "123456", username: "Patrick")
 puts "#{user_dummy_three.email} was created."
 
 puts ''
