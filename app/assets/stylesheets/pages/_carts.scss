@@ -1,41 +1,60 @@
-table {
-  border-collapse: collapse;
-}
-td {
-  padding: 0.5em;
-}
-td.quantity {
-  white-space: nowrap;
-}
-td.quantity::after {
-  content: " ×";
-}
-td.price {
-  font-weight: bold;
-  text-align: right;
-}
-tfoot {
-  th, th.price {
-    font-weight: bold;
-    padding-top: 1em;
-  }
-  th {
-    text-align: right;
-  }
-  th.price {
-    border-top: solid thin;
+.cart-font {
+  h2 {
+    color: $braid-green;
   }
 }
 
-// article {
-//   h2 {
-//     margin-top: 0;
-//   }
-//   background: white;
-//   border-radius: 0.5em;
-//   margin: 1em;
-//   padding: 1.414em;
-//   @media (min-width: 30em) {
-//     margin: 0; // desktop doesn't need this margin
-//   }
-// }
+.cart-product {
+  overflow: hidden;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-product img {
+  height: 100%;
+  width: 120px;
+  border: 1px solid;
+  object-fit: cover;
+}
+
+.cart-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cart-product p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.cart-product .cart-product-infos {
+  padding: 16px;
+}
+
+.cart-btn-group {
+  color: white;
+  background-color: $braid-green;
+  border-color: $braid-green;
+  transition: background-color .5s;
+}
+
+.cart-btn-group:hover {
+  background-color: darken($braid-green, 10%);
+}
+
+.cart-btn-single {
+  color: white;
+  background-color: $black;
+  border-color: $black;
+  transition: background-color .5s;
+}
+
+.cart-btn-single:hover {
+  background-color: lighten($black, 25%);
+}
+
