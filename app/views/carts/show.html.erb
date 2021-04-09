@@ -1,48 +1,17 @@
-<div class="container">
+<div class="container cart-font">
   <h2>Your Cart</h2>
-  <% @cart.order_items.each do |order_item| %>
-    <div class="cart-product">
-      <% if order_item.product.photos.attached? %>
-        <%= cl_image_tag order_item.product.photo.key, height: 125, width: 125, crop: :fill %>
-      <% else %>
-        <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="product-store">
-      <% end %>
 
-      <div class="cart-product-infos">
-        <h2><%= order_item.quantity %> × <%= order_item.product.name %></h2>
-        <p><strong><%= number_to_currency(order_item.total_price) %></strong></p>
-      </div>
-    </div>
-    <br>
-  <% end %>
+  <%= render 'your_cart' %>
 
-  <article>
-    <h2>Your Cart</h2>
-
-    <table>
-      <% @cart.order_items.each do |order_item| %>
-        <tr>
-          <td class="quantity"><%= order_item.quantity %></td>
-          <td><%= order_item.product.name %></td>
-          <td class="price"><%= number_to_currency(order_item.total_price) %></td>
-        </tr>
-      <% end %>
-
-      <tfoot>
-        <tr>
-          <th colspan="2">Total:</th>
-          <td class="price"><%= number_to_currency(@cart.total_price) %></td>
-        </tr>
-      </tfoot>
-    </table>
-    <br>
-    <%= button_to 'Empty cart', @cart,
+  <%= button_to 'Empty cart', @cart,
     method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-  </article>
+    data: { confirm: 'Are you sure?' },
+    class: 'btn btn-outline-secondary btn-sm' %>
   <br>
-  <%= link_to 'Single Buy', '#', class: 'btn btn-primary' %>
-  <%= link_to 'Group Buy', new_lobby_path, class: 'btn btn-primary' %>
-</div>
 
- ×
+  <h1>Total: <%= number_to_currency(@cart.total_price) %></h1>
+
+  <br>
+  <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single' %>
+  <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group' %>
+</div>

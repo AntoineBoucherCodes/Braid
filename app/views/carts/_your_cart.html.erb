@@ -1,0 +1,15 @@
+<% @cart.order_items.each do |order_item| %>
+  <div class="cart-product">
+    <% if order_item.product.photos.attached? %>
+      <%= cl_image_tag order_item.product.photo.key, height: 125, width: 125, crop: :fill %>
+    <% else %>
+      <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="cart-product">
+    <% end %>
+
+    <div class="cart-product-infos">
+      <h2><%= order_item.quantity %> × <%= order_item.product.name %></h2>
+      <p><strong><%= number_to_currency(order_item.total_price) %></strong></p>
+    </div>
+  </div>
+  <br>
+<% end %>
