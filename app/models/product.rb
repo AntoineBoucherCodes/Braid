@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   # multisearchable against: [:name, :description]
   pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
+    against: [ :name, :description, :categorie ],
     using: {
       tsearch: { prefix: true }
     }
@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   before_destroy :ensure_not_referenced_by_any_order_item
 
   private
-  
+
   # To prevent the removal of products that are referenced by order_items
   def ensure_not_referenced_by_any_order_item
     unless line_items.empty?

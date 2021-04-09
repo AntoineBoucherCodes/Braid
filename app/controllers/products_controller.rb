@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     else
       @products = policy_scope(Product).order(created_at: :desc)
     end
+    raise
   end
 
   def new
