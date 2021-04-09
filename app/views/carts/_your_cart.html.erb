@@ -1,7 +1,9 @@
 <% @cart.order_items.each do |order_item| %>
   <div class="cart-product">
     <% if order_item.product.photos.attached? %>
-      <%= cl_image_tag order_item.product.photo.key, height: 125, width: 125, crop: :fill %>
+      <% order_item.product.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 125, width: 125, crop: :fill %>
+      <% end %>
     <% else %>
       <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="cart-product">
     <% end %>
