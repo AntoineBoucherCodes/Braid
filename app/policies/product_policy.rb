@@ -24,4 +24,8 @@ class ProductPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def categories_index
+    true
+  end
 end

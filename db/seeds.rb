@@ -71,6 +71,8 @@ puts ''
 puts "Creating dummy category."
 category = Categorie.create(name: 'Dummy category')
 
+puts "Dummy category id is #{category.id}"
+
 30.times do
   Categorie.create(name: Faker::Commerce.department)
 end
