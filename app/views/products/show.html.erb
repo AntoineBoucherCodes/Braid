@@ -9,7 +9,7 @@
       <div class="store-info-container">
         <div class="picture-product-store">
           <% if @product.store.photo.attached? %>
-            <%= cl_image_tag store.photo.key, height: 125, width: 125, crop: :fill, class:"product-store" %>
+            <%= cl_image_tag @product.store.photo.key, crop: :fill, class:"show-product-store" %>
           <% else %>
             <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="product-store">
           <% end %>

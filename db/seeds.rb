@@ -96,9 +96,6 @@ casper = Store.create(
   user_id: user_dummy.id,
 )
 
-# file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-# casper.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
 allbirds = Store.create(
   name: "Allbirds",
   address: Faker::Address.city,
@@ -453,14 +450,6 @@ cartwright = Product.create(
   category_id: clothing.id
 )
 
-cartwright = Product.create(
-  name: "The Cartwright",
-  description: "The Cartwright is a timeless cowboy boot with an angled heel, signature Tecovas toe stitching, and an elegant, sweeping hand-corded pattern on its shaft. Ultra-soft calfskin leather wraps the entire boot for a look that can be worn on any occasion.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
-  store_id: tecovas.id,
-  category_id: clothing.id
-)
-
 dean = Product.create(
   name: "The Dean",
   description: "The Dean is a modern boot designed for all-access versatility. A slim-cut shaft allows for everyday wear with any jeans - and a subtly-designed zipper means 'easy on, easy off' comfort. Handmade with our classic western construction in our signature supple calfskin leather, The Dean may be the most versatile western boot ever.",
@@ -477,13 +466,140 @@ dadhat = Product.create(
   category_id: clothing.id
 )
 
-truckerhat = Product.create(
-  name: "Trucker Hat",
-  description: "Rep your favorite western brand in style with the Tecovas Trucker Hat - in three versatile styles. The hats feature unique logos, a mid-profile, universally-appealing fit, and an adjustable snap closure.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
-  store_id: tecovas.id,
-  category_id: clothing.id
-)
+
+#////////////Photos//////////
+
+image1 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849894/Braid/1.%20Casper/Casper_Store_wntbts.png')
+casper.photo.attach(io: image1, filename: 'image.png', content_type: 'image/png')
+
+  productimage1 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/1.%20Casper/haven-bed-frame_hmdte9.jpg')
+  haven.photos.attach(io: productimage1, filename: 'image.png', content_type: 'image/png')
+
+  productimage2 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/1.%20Casper/repose-bed-frame_ydpenh.jpg')
+  repose.photos.attach(io: productimage2, filename: 'image.png', content_type: 'image/png')
+
+  productimage3 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/1.%20Casper/adjustable-bed-frames_cmrzxx.jpg')
+  adjustable.photos.attach(io: productimage3, filename: 'image.png', content_type: 'image/png')
+
+  productimage4 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/1.%20Casper/pillows-original-01_n5rosv.jpg')
+  originalpillow.photos.attach(io: productimage4, filename: 'image.png', content_type: 'image/png')
+
+  productimage5 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/1.%20Casper/pillows-original-01_n5rosv.jpg')
+  foampillow.photos.attach(io: productimage5, filename: 'image.png', content_type: 'image/png')
+
+image2 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849895/Braid/2.%20Allbirds/Screen_Shot_2021-04-07_at_8.37.36_PM_garmsb.png')
+allbirds.photo.attach(io: image2, filename: 'image.png', content_type: 'image/png')
+
+  productimage6 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849894/Braid/2.%20Allbirds/Runners_bo71ws.jpg')
+  runningshoes.photos.attach(io: productimage6, filename: 'image.png', content_type: 'image/png')
+
+  productimage7 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849894/Braid/2.%20Allbirds/Sneakers_fvqsry.jpg')
+  everydaysneakers.photos.attach(io: productimage7, filename: 'image.png', content_type: 'image/png')
+
+  productimage8 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849895/Braid/2.%20Allbirds/High-Tops_lpznms.webp')
+  hightops.photos.attach(io: productimage8, filename: 'image.png', content_type: 'image/png')
+
+image3 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617850430/Braid/3.%20Tuft%20and%20Paw/Screen_Shot_2021-04-07_at_10.53.27_PM_nzuqev.png')
+tuft.photo.attach(io: image3, filename: 'image.png', content_type: 'image/png')
+
+  productimage9 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849897/Braid/3.%20Tuft%20and%20Paw/Stellar_iajppi.jpg')
+  stella.photos.attach(io: productimage9, filename: 'image.png', content_type: 'image/png')
+
+  productimage10 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849896/Braid/3.%20Tuft%20and%20Paw/HappyCamper_d9kysv.jpg')
+  happycamper.photos.attach(io: productimage10, filename: 'image.png', content_type: 'image/png')
+
+  productimage11 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849896/Braid/3.%20Tuft%20and%20Paw/Rifiuti_usoydn.jpg')
+  rifuti.photos.attach(io: productimage11, filename: 'image.png', content_type: 'image/png')
+
+image4 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849896/Braid/4.%20Quip/Screen_Shot_2021-04-07_at_8.39.33_PM_yq93ad.png')
+quip.photo.attach(io: image4, filename: 'image.png', content_type: 'image/png')
+
+  productimage12 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849893/Braid/4.%20Quip/Toothbrush_f6ei6x.jpg')
+  electrictoothbrush.photos.attach(io: productimage12, filename: 'image.png', content_type: 'image/png')
+
+  productimage13 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849894/Braid/4.%20Quip/Kid_Tootbrush_t4bybu.jpg')
+  kidelectrictoothbrush.photos.attach(io: productimage13, filename: 'image.png', content_type: 'image/png')
+
+  productimage14 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849896/Braid/4.%20Quip/Floss_mipxup.jpg')
+  floss.photos.attach(io: productimage14, filename: 'image.png', content_type: 'image/png')
+
+image5 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/5.%20Glossier/Screen_Shot_2021-04-07_at_8.38.59_PM_engxkc.png')
+glossier.photo.attach(io: image5, filename: 'image.png', content_type: 'image/png')
+
+  productimage15 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849897/Braid/5.%20Glossier/Boy_Brow_duyv8e.jpg')
+  boybrow.photos.attach(io: productimage15, filename: 'image.png', content_type: 'image/png')
+
+  productimage16 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849896/Braid/5.%20Glossier/Perfecting_Skin_Tint_gmedys.jpg')
+  skintint.photos.attach(io: productimage16, filename: 'image.png', content_type: 'image/png')
+
+  productimage17 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849897/Braid/5.%20Glossier/Makeup_Set_opkukc.jpg')
+  makeupset.photos.attach(io: productimage17, filename: 'image.png', content_type: 'image/png')
+
+image6 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/6.%20Nuggs/Screen_Shot_2021-04-07_at_9.17.16_PM_q2ngh1.png')
+nuggs.photo.attach(io: image6, filename: 'image.png', content_type: 'image/png')
+
+  productimage18 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/6.%20Nuggs/Nuggs_vm09bz.png')
+  regularnuggs.photos.attach(io: productimage18, filename: 'image.png', content_type: 'image/png')
+
+  productimage19 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/6.%20Nuggs/Spicy_Nuggs_gdivk7.png')
+  spicynuggs.photos.attach(io: productimage19, filename: 'image.png', content_type: 'image/png')
+
+image7 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/7.%20Mejuri/Screen_Shot_2021-04-07_at_9.24.48_PM_vpmuxl.png')
+mejuri.photo.attach(io: image7, filename: 'image.png', content_type: 'image/png')
+
+  productimage20 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/7.%20Mejuri/CroissantDomeHoops_earrings_v_alt1_jranth.jpg')
+  earring.photos.attach(io: productimage20, filename: 'image.png', content_type: 'image/png')
+
+  productimage21 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/7.%20Mejuri/BoyfriendBold_Necklace_yg_alt1-0253_eortev.jpg')
+  necklace.photos.attach(io: productimage21, filename: 'image.png', content_type: 'image/png')
+
+  productimage22 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849898/Braid/7.%20Mejuri/EnamelGemstone_DomeRing_GreenPrasiolite_v_alt1_cjaqaf.jpg')
+  ring.photos.attach(io: productimage22, filename: 'image.png', content_type: 'image/png')
+
+image8 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/8.%20Uprise%20Art/Screen_Shot_2021-04-07_at_9.32.36_PM_nz1x9i.png')
+upriseart.photo.attach(io: image8, filename: 'image.png', content_type: 'image/png')
+
+  productimage23 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/8.%20Uprise%20Art/Screen_Shot_2021-04-07_at_9.32.36_PM_nz1x9i.png')
+  togetheragain.photos.attach(io: productimage23, filename: 'image.png', content_type: 'image/png')
+
+  productimage24 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/8.%20Uprise%20Art/Coral_and_Green_pkxpzo.jpg')
+  coralandgreen.photos.attach(io: productimage24, filename: 'image.png', content_type: 'image/png')
+
+  productimage25 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/8.%20Uprise%20Art/Clothed_in_the_Sun_imfm76.jpg')
+  clothedinthesun.photos.attach(io: productimage25, filename: 'image.png', content_type: 'image/png')
+
+image9 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/9.%20Suvie/Screen_Shot_2021-04-07_at_9.51.59_PM_qsogjv.png')
+suvie.photo.attach(io: image9, filename: 'image.png', content_type: 'image/png')
+
+  productimage26 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849899/Braid/9.%20Suvie/Suvie_Oven_y1iszp.png')
+  suvieoven.photos.attach(io: productimage26, filename: 'image.png', content_type: 'image/png')
+
+image10 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849900/Braid/10.%20Bloomscape/Screen_Shot_2021-04-07_at_9.56.36_PM_qc74y5.png')
+bloomscape.photo.attach(io: image10, filename: 'image.png', content_type: 'image/png')
+
+  productimage27 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849900/Braid/10.%20Bloomscape/Screen_Shot_2021-04-07_at_10.00.06_PM_gx927o.png')
+  moneytree.photos.attach(io: productimage27, filename: 'image.png', content_type: 'image/png')
+
+  productimage28 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849901/Braid/10.%20Bloomscape/Screen_Shot_2021-04-07_at_9.59.39_PM_icjw7f.png')
+  bromeliad.photos.attach(io: productimage28, filename: 'image.png', content_type: 'image/png')
+
+  productimage29 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849900/Braid/10.%20Bloomscape/Screen_Shot_2021-04-07_at_10.01.01_PM_zpigx2.png')
+  bamboo.photos.attach(io: productimage29, filename: 'image.png', content_type: 'image/png')
+
+image11 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849902/Braid/11.%20Tecovas/Screen_Shot_2021-04-07_at_8.36.55_PM_ycvtef.png')
+tecovas.photo.attach(io: image11, filename: 'image.png', content_type: 'image/png')
+
+  productimage30 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849901/Braid/11.%20Tecovas/Earl-Mens-Roper-Calfskin-Bourbon-Profile-gallery_608cc850-3474-4624-a8b6-8ad7d0246e65_1280x1280.progressive_vxyybm.jpg')
+  earl.photos.attach(io: productimage30, filename: 'image.png', content_type: 'image/png')
+
+  productimage31 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849901/Braid/11.%20Tecovas/Cartwright-Mens-Calfskin-Cowboy-Midnight-Profile-Gallery_8caa5a26-5d8a-4d3d-95db-a2c838cec37e_1280x1280.progressive_lwymzp.jpg')
+  cartwright.photos.attach(io: productimage31, filename: 'image.png', content_type: 'image/png')
+
+  productimage32 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849902/Braid/11.%20Tecovas/Dean-Mens-Calfskin-Zip-Natural-Profile-Gallery_1280x1280.progressive_cmwhji.jpg')
+  dean.photos.attach(io: productimage32, filename: 'image.png', content_type: 'image/png')
+
+  productimage33 = URI.open('https://res.cloudinary.com/dfzpux58o/image/upload/v1617849901/Braid/11.%20Tecovas/Hat-Dad-GreenPatch-Front-gallery_1280x1280.progressive_pdy1im.jpg')
+  dadhat.photos.attach(io: productimage33, filename: 'image.png', content_type: 'image/png')
 
 
 puts "Done!"

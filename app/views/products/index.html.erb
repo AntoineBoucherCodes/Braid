@@ -23,19 +23,30 @@
 
     </div>
 
-  <div class="col-9" style="display:flex; flex-wrap: wrap; justify-content: space-between;">
-      <% @products[0..17].each do |product| %>
-        <div class="card-product" style="margin-bottom: 15px">
-          <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
-          <div class="card-product-infos">
-            <h1><%= link_to product.name, product_path(product) %></h1>
-            <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-price" %>
-          </div>
+  <div class="col-9" style="display:flex; flex-wrap: wrap;">
+      <% @products.each do |product| %>
+        <div class="card-product" style="margin-bottom: 15px; margin-right: 15px">
+          <% if product.photos.attached? %>
+            <% product.photos.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+            <%end%>
+          <% else %>
+            <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
+          <% end %>
+        <div class="card-product-infos">
+
+          <h1><%= link_to product.name, product_path(product) %></h1>
+          <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-price" %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
+
 </div>
 </div>
+
+
+
 
 
 

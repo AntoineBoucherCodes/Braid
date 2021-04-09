@@ -1,17 +1,13 @@
 <div class="container">
 
   <div class="banner">
-    <% if @store.photo.attached? %>
-      <%= cl_image_tag @store.photo.key, height: 300, width: 300, crop: :thumb %>
-    <% else %>
-      <%= image_tag "product-4.png" %>
-    <% end %>
+      <%= image_tag "braid-promotion-banner-2.png" %>
   </div>
 
   <div class="store-info-container" style="margin: 20px 0px">
     <div class="picture-product-store">
       <% if @store.photo.attached? %>
-        <%= cl_image_tag store.photo.key, height: "100%", width: "215px", crop: :fill, class:"product-store" %>
+        <%= cl_image_tag @store.photo.key, crop: :fill, class:"show-product-store" %>
       <% else %>
         <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="product-store">
       <% end %>
@@ -31,10 +27,16 @@
   <hr class="hr-product" style="margin-bottom: 20px">
 
   <row>
-    <div class="col-12">
+    <div class="col-12" style="display:flex; flex-wrap: wrap;">
       <% @products[0..17].each do |product| %>
-        <div class="card-product" style="margin-bottom: 15px">
-          <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
+        <div class="card-product" style="margin-bottom: 15px ; margin-right: 15px">
+          <% if product.photos.attached? %>
+            <% product.photos.each do |photo| %>
+              <%= cl_image_tag photo.key %>
+            <%end%>
+          <% else %>
+            <img src="https://source.unsplash.com/x_ujfGcrAyU/300x400">
+          <% end %>
           <div class="card-product-infos">
             <h1><%= link_to product.name, product_path(product) %></h1>
             <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-price" %>
@@ -52,6 +54,7 @@
   <% if policy(@store).edit? %>
     <%= link_to "Edit Store", edit_store_path %>
   <% end %>
+  <br>
   <%= link_to "Delete this shop", store_path(@store), method: :delete, data: { confirm: "Are you sure you want to delete #{@store.name}?" } %>
 </div>
 
