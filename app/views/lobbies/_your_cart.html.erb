@@ -1,7 +1,18 @@
-<div>
+<div class="lobby-card-user mb-0">
+  <div class="profile-img">
+    <%= image_tag "user-default.png", class: "avatar dropdown-toggle" %>
+  </div>
+  <h5><%= @lobby.user.username %></h5>
   <% @lobby.user.carts.last.order_items.each do |order_item| %>
     <ul>
-      <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
+ <!--      <div class="lobby-product-details">
+        <li>
+          <% order_item.product.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 80, width: 80, crop: :fill %>
+        <% end %>
+        </li>
+        <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
+      </div> -->
       <li>Total: <%= number_to_currency(order_item.total_price) %></li>
     </ul>
   <% end %>

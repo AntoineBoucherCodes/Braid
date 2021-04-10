@@ -7,9 +7,9 @@
     <div class="col-7">
       <p>Participants:</p>
       <div><%= render 'lobbies/your_cart' %></div>
-      <br>
+      <hr class="hr-product">
       <div><%= render 'lobbies/lobby_participant_carts' %></div>
-      <br>
+      <hr class="hr-product">
 
   <%# To do: turn the contents of this div into a partial once the proper logic is implemented to clean up this page %>
       <div>
@@ -36,7 +36,7 @@
     </div>
     <div class="col-5">
       <div class="store-info-container">
-        <div class="product-store-info">
+        <div class="product-store-info-lobby">
           <h1 class='mb-0'><%= lobby_store.name %></h1>
           <p class='mb-0'style="color:#51A996;"><%= lobby_store.address %></p>
           <p class='mb-0'><%= lobby_store.description %></p>
