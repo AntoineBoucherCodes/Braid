@@ -1,4 +1,4 @@
-.cart_sidebar {
+.cart-sidebar {
   position: fixed;
   right: -400px;
   height: 100vh;
@@ -10,6 +10,6 @@
   transition: right 1s;
 }
 
-.show_sidebar {
+.show-sidebar {
   right: 0px;
 }

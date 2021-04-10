@@ -1,9 +1,9 @@
 const initToggleSidebarOnClick = () => {
-  const button = document.querySelector('.fa-bell');
+  const button = document.querySelector('.shopping-cart-button');
   button.addEventListener("click", (event) => {
-    const cart = document.querySelector('.cart_sidebar');
+    const cart = document.querySelector('.cart-sidebar');
     console.log("Cart was clicked.");
-    cart.classList.toggle("show_sidebar");
+    cart.classList.toggle("show-sidebar");
     console.log(cart.classList);
   });
 };
@@ -11,9 +11,9 @@ const initToggleSidebarOnClick = () => {
 const initCloseSidebarOnClick = () => {
   const button = document.querySelector('.close');
   button.addEventListener("click", (event) => {
-    const cart = document.querySelector('.cart_sidebar');
+    const cart = document.querySelector('.cart-sidebar');
     console.log("Close button was clicked.");
-    cart.classList.remove("show_sidebar");
+    cart.classList.remove("show-sidebar");
     console.log(cart.classList);
   });
 };

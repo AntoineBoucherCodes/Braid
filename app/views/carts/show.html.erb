@@ -1,7 +1,24 @@
 <div class="container cart-font">
   <h2>Your Cart</h2>
 
-  <%= render 'your_cart' %>
+  <% @cart.order_items.each do |order_item| %>
+    <div class="cart-product">
+      <% if order_item.product.photos.attached? %>
+        <% order_item.product.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 125, width: 125, crop: :fill %>
+        <% end %>
+      <% else %>
+        <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="cart-product">
+      <% end %>
+
+      <div class="cart-product-infos">
+        <h2><%= order_item.quantity %> × <%= order_item.product.name %></h2>
+        <p><strong><%= number_to_currency(order_item.total_price) %></strong></p>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
 
   <%= button_to 'Empty cart', @cart,
     method: :delete,

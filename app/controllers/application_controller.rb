@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index, :dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :dashboard], unless: :skip_pundit?
 
+  def cart
+    @cart = current_user.carts.last
+  end
+
   private
 
   def skip_pundit?
