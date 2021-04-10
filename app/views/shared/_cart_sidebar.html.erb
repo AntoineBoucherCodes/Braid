@@ -1,9 +1,57 @@
-<div class="container">
-  <!-- Close button -->
-  <button type="button" class="close" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div class="cart_sidebar">
+  <div class="container">
+    <!-- Close button -->
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
 
-  <h1>Your Cart</h1>
+    <h1>Your Cart</h1>
+
+    <% @cart.order_items.each do |order_item| %>
+      <div class="cart-product">
+        <% if order_item.product.photos.attached? %>
+          <% order_item.product.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 125, width: 125, crop: :fill %>
+          <% end %>
+        <% else %>
+          <img src="https://source.unsplash.com/KStSiM1UvPw/125x125" class="cart-product">
+        <% end %>
+
+        <div class="cart-product-infos">
+          <h2><%= order_item.quantity %> × <%= order_item.product.name %></h2>
+          <p><strong><%= number_to_currency(order_item.total_price) %></strong></p>
+        </div>
+      </div>
+      <br>
+    <% end %>
+
+    <%= button_to 'Empty cart', @cart,
+    method: :delete,
+    data: { confirm: 'Are you sure?' },
+    class: 'btn btn-outline-secondary btn-sm' %>
+    <br>
+
+    <h1>Total: <%= number_to_currency(@cart.total_price) %></h1>
+
+    <br>
+    <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single' %>
+    <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group' %>
+
+    <% if session[:cart_id] %>
+      <%= link_to cart_path(session[:cart_id]) do %>
+        <div id="cart-button">
+          <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"> View your cart</i>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to root_path, notice: 'Your cart is currently empty' do %>
+        <div id="cart-button">
+          <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
 </div>
+
 
