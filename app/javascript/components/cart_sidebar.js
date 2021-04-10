@@ -1,5 +1,12 @@
-const toggleSidebar = () => {
+const toggleSidebarTest = () => {
   console.log("hi test");
 };
 
-export { toggleSidebar }
+const initToggleSidebarOnClick = () => {
+  const cart = document.getElementById('cart_sidebar');
+  cart.addEventListener("click", (event) => {
+    console.log("Cart was clicked.");
+  });
+};
+
+export { initToggleSidebarOnClick };
