@@ -1,4 +1,3 @@
-<h1>Lobby Participant's Carts</h1>
 <% @lobby.lobby_participants.each do |lobby_participant| %>
   <h5><%= lobby_participant.user.email %></h5>
   <p>Invitation status: <%= lobby_participant.invitation_status %></p>
