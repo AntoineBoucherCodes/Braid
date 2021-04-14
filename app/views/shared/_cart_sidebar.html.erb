@@ -37,9 +37,11 @@
 
     <h1>Total: <%= number_to_currency(@cart.total_price) %></h1>
 
-    <div class="center">
+    <div class="d-flex justify-content-center">
       <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single btn-sidebar' %>
-      <br>
+    </div>
+
+    <div class="d-flex justify-content-center">
       <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group btn-sidebar' %>
     </div>
 
