@@ -1,0 +1,5 @@
+meta_product_name: "Braid Commerce"
+meta_title: "Braid - Buy together save together"
+meta_description: "Shop from your favorite stores with your friends and receive discount for reaching dollar tresholds"
+meta_image: "braid-cover-meta.png" # should exist in `app/assets/images/`
+twitter_account: "@AntnBoucher"   # required for Twitter Cards
