@@ -1,11 +1,11 @@
-<div class="cart-sidebar">
+<div class="cart-sidebar cart-font">
   <div class="container">
     <!-- Close button -->
     <button type="button" class="close" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
 
-    <h1>Your Cart</h1>
+    <h2>Your Cart</h2>
 
     <% if @cart.order_items.count == 0 %>
       <p>Your cart is empty.</p>
@@ -38,23 +38,19 @@
 
     <h1>Total: <%= number_to_currency(@cart.total_price) %></h1>
 
-    <br>
-    <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single' %>
-    <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group' %>
+    <div class="center">
+      <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single btn-sidebar' %>
+      <br>
+      <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group btn-sidebar' %>
+    </div>
 
-    <% if session[:cart_id] %>
-      <%= link_to cart_path(session[:cart_id]) do %>
-        <div id="cart-button">
-          <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"> View your cart</i>
-        </div>
+    <div class="d-flex justify-content-center">
+      <% if session[:cart_id] %>
+        <%= link_to 'View your cart', cart_path(session[:cart_id]) %>
+      <% else %>
+        <%= link_to root_path 'View your cart', notice: 'Your cart is currently empty'%>
       <% end %>
-    <% else %>
-      <%= link_to root_path, notice: 'Your cart is currently empty' do %>
-        <div id="cart-button">
-          <i class="fas fa-shopping-bag" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
-        </div>
-      <% end %>
-    <% end %>
+    </div>
 
   </div>
 </div>

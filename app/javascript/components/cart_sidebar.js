@@ -1,7 +1,8 @@
 const initToggleSidebarOnClick = () => {
-  const button = document.querySelector('.shopping-cart-button');
+  const button = document.querySelector(".shopping-cart-button");
   button.addEventListener("click", (event) => {
-    const cart = document.querySelector('.cart-sidebar');
+    const cart = document.querySelector(".cart-sidebar");
+
     console.log("Cart was clicked.");
     cart.classList.toggle("show-sidebar");
     console.log(cart.classList);
