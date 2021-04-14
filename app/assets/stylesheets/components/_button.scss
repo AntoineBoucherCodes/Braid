@@ -29,9 +29,30 @@
   border-radius: 0px;
 }
 
+.btn-black {
+  color: white;
+  padding: 5px;
+  border-radius: 0px;
+  background: $black;
+  width: 134px;
+  height: 40px;
+  border-radius: 0px;
+}
 
-.btn:hover {
-  color: #fff !important;
+.btn-transparent {
+  color: $black;;
+  padding: 7px;
+  border: 1px solid $black;
+  border-radius: 0px;
+  background: transparent;
+  width: 134px;
+  height: 40px;
+  border-radius: 0px;
+}
+
+
+.btn-black:hover {
+  color: $white !important;
   text-decoration: none;
 }
 
