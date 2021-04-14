@@ -1,3 +1,5 @@
+<%= render 'shared/cart_sidebar' %>
+
 <div>
 <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
@@ -26,12 +28,12 @@
             <i class="fas fa-columns" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
           <% end %>
         <li>
-          <%= link_to root_path do %>
+          <%# link_to '#' do %>
             <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
-          <% end %>
+          <%# end %>
         </li>
         <li>
-          <%= render 'shared/cart_button' %>
+          <i class="fas fa-shopping-bag shopping-cart-button btn" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
         </li>
 
         <% if user_signed_in? %>
@@ -63,3 +65,5 @@
     </nav>
   </div>
 </div>
+
+

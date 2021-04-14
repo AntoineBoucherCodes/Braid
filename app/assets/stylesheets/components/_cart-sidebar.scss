@@ -1,0 +1,27 @@
+.cart-sidebar {
+  position: fixed;
+  right: -450px;
+  height: 100vh;
+  width: 450px;
+  background-color: $braid-orange;
+  z-index: 100;
+  border: solid 1px black;
+
+  transition: right 1s;
+}
+
+.show-sidebar {
+  right: 0px;
+}
+
+.btn-sidebar {
+  width: 100%;
+  padding: 8px;
+  margin: 8px;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
