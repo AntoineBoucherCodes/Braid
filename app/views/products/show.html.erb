@@ -21,7 +21,7 @@
         </div>
         <div class="product-breakpoint ml-5">
           <p>Breakpoints</p>
-          <a class="btn btn-breakpoint-price" href="#"><%= @product.store.discount_breakpoints %></a>
+          <a class="btn btn-breakpoint-price" href="#"><%= number_to_currency(@product.store.discount_breakpoints) %></a>
           <a class="btn btn-breakpoint-one" href="#">10% off</a>
         </div>
       </div>
