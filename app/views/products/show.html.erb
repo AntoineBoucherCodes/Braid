@@ -21,8 +21,14 @@
         </div>
         <div class="product-breakpoint ml-5">
           <p>Breakpoints</p>
-          <a class="btn btn-breakpoint-price" href="#"><%= @product.store.discount_breakpoints %></a>
+
+          <!-- Tooltip for breakpoints -->
+          <button type="button" class="btn btn-breakpoint-price" data-toggle="tooltip" data-placement="top" title="Spend this much in a Group or Single buy to unlock a special 10% discount with this store!">
+            <%= @product.store.discount_breakpoints %>
+          </button>
+
           <a class="btn btn-breakpoint-one" href="#">10% off</a>
+
         </div>
       </div>
       <hr class="hr-product">
@@ -48,7 +54,6 @@
     </div>
 
   </div>
-
 
 </div>
 
