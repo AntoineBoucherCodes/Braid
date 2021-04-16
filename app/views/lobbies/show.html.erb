@@ -17,7 +17,7 @@
         <br>
         <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
           <p>Congratulations! This lobby's total cart amount qualifies for a 15% discount!</p>
-          <h1>Your new Lobby's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.15)) %></h1>
+          <h1>Your new Lobby's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.10)) %></h1>
         <% else %>
           <p>
             Your order does not qualify for a discount.
@@ -39,7 +39,7 @@
           <p class='mb-0'><%= lobby_store.description %></p>
           <p>Promotions</p>
           <a class="btn btn-breakpoint-price" href="#"><%= lobby_store.discount_breakpoints %>$</a>
-          <a class="btn btn-breakpoint-one" href="#">15% off</a>
+          <a class="btn btn-breakpoint-one" href="#">10% off</a>
           <br>
           <a class="btn btn-breakpoint-price" href="#">3000$</a>
           <a class="btn btn-breakpoint-two" href="#">20% off</a>
