@@ -46,6 +46,15 @@
     color: white;
     background-color: darken($braid-green, 10%);
   }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+  }
 }
 
 .cart-btn-single {
@@ -57,5 +66,14 @@
   &:hover {
     color: white;
     background-color: lighten($black, 25%);
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
   }
 }
