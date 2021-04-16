@@ -1,19 +1,16 @@
-<h1>Lobby Participant's Carts</h1>
 <% @lobby.lobby_participants.each do |lobby_participant| %>
-  <h5><%= lobby_participant.user.email %></h5>
-  <p>Invitation status: <%= lobby_participant.invitation_status %></p>
-  <p>Their cart: <%= lobby_participant.cart %></p>
-
-  <% if lobby_participant.cart.nil? %>
-    <p>This participant's cart is empty.</p>
-  <% else %>
-    <div>
-      <% lobby_participant.cart.order_items.each do |order_item| %>
-        <ul>
-          <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
-          <li>Total: <%= number_to_currency(order_item.total_price) %></li>
-        </ul>
-      <% end %>
+  <div class="lobby-card-user">
+    <%= image_tag "user-default.png", class: "profile-img" %>
+    <div class="pl-3" style="max-width: 500px;">
+      <h5><%= lobby_participant.user.username %></h5>
+      <p>Invitation status: <%= lobby_participant.invitation_status %></p>
     </div>
-  <% end %>
+      <% if lobby_participant.cart.nil? %>
+        <p style="text-align: right;">Cart is empty.</p>
+      <% else %>
+        <p style="text-align: right;">Total: <%= number_to_currency(lobby_participant.cart.total_price) %></p>
+      <% end %>
+  </div>
+  <hr class="hr-product">
 <% end %>
+

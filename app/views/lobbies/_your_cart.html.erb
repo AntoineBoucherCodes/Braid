@@ -1,9 +1,19 @@
-<h1>Your Cart</h1>
-<div>
+<div class="lobby-card-user">
+  <%= image_tag "user-default.png", class: "profile-img" %>
+  <div class="pl-3" style="min-width: 500px;">
+    <h5><%= @lobby.user.username %></h5>
+  </div>
+  <p style="text-align: right;">Total: <%= number_to_currency(@lobby.user.carts.last.total_price) %></p>
   <% @lobby.user.carts.last.order_items.each do |order_item| %>
-    <ul>
-      <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
-      <li>Total: <%= number_to_currency(order_item.total_price) %></li>
-    </ul>
+  <ul>
+ <!--      <div class="lobby-product-details">
+        <li>
+          <% order_item.product.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 80, width: 80, crop: :fill %>
+        <% end %>
+        </li>
+        <li><%= order_item.quantity %>x <%= order_item.product.name %></li>
+      </div> -->
+  </ul>
   <% end %>
 </div>
