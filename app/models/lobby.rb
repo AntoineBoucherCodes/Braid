@@ -1,8 +1,9 @@
 class Lobby < ApplicationRecord
   belongs_to :user
-  has_many :lobby_participants
+  has_many :lobby_participants, dependent: :destroy
 
-  def total_price 
+
+  def total_price
     user_total = self.user.carts.last.total_price
 
     participants_total = 0
