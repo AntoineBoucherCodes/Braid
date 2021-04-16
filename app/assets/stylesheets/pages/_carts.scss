@@ -43,6 +43,7 @@
   transition: background-color .5s;
 
   &:hover {
+    color: white;
     background-color: darken($braid-green, 10%);
   }
 }
@@ -54,6 +55,7 @@
   transition: background-color .5s;
 
   &:hover {
+    color: white;
     background-color: lighten($black, 25%);
   }
 }
