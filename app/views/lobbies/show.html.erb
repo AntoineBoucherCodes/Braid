@@ -6,18 +6,13 @@
   <div class="row">
     <div class="col-7">
       <p>Participants:</p>
-      <div><%= render 'lobbies/your_cart' %></div>
+      <%= render 'lobbies/your_cart' %>
       <hr class="hr-product">
-      <div><%= render 'lobbies/lobby_participant_carts' %></div>
-      <hr class="hr-product">
+      <%= render 'lobbies/lobby_participant_carts' %>
 
-  <%# To do: turn the contents of this div into a partial once the proper logic is implemented to clean up this page %>
-      <div>
-        <br>
-        <h1>This Lobby's Total: <%= number_to_currency(@lobby.total_price) %></h1>
-        <p>
-          <%= lobby_store.name %>'s discount breakpoint: <%= number_to_currency(lobby_store.discount_breakpoints) %>
-        </p>
+        <p class='m-0 toatl-right-side'>Total:</p>
+        <p class='m-0 toatl-right-side'><%= number_to_currency(@lobby.total_price) %></p>
+   <!--      <p class='toatl-right-side'>15% Off</p> -->
 
         <br>
         <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
@@ -30,11 +25,13 @@
             Spend an additional <%= number_to_currency(lobby_store.discount_breakpoints - @lobby.total_price) %> to unlock a 15% discount!
           </p>
         <% end %>
+      <div class="center-buttons">
+        <%= link_to 'Invite more people', new_lobby_lobby_participant_path(@lobby), class: 'btn btn-flat invite-rounded' %>
+        <div><br><%= render 'lobbies/confirm_order' %></div>
       </div>
 
-      <div><br><%= render 'lobbies/confirm_order' %></div>
     </div>
-    <div class="col-5">
+    <div class="col-5 pl-4 pb-5">
       <div class="store-info-container">
         <div class="product-store-info-lobby">
           <h1 class='mb-0'><%= lobby_store.name %></h1>
@@ -57,11 +54,7 @@
     </div>
   </div>
 
-
-  </div>
 </div>
 
 
-<br>
-<%= link_to 'Invite a friend to the Lobby!', new_lobby_lobby_participant_path(@lobby), class: 'btn btn-flat' %>
 <%= link_to "Close lobby", lobby_path(@lobby), method: :delete, data: { confirm: "Are you sure you want to delete #{@lobby.name}?" } %>
