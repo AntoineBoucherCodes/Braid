@@ -10,6 +10,8 @@ require("channels")
 
 import { initToggleSidebarOnClick } from "../components/cart_sidebar"
 import { initCloseSidebarOnClick } from "../components/cart_sidebar"
+import { initPopover } from "../components/popover"
+import { initTooltip } from "../components/tooltip"
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -35,4 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initToggleSidebarOnClick();
   initCloseSidebarOnClick();
+  initPopover();
+  initTooltip();
 });
