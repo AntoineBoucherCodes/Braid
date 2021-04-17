@@ -18,11 +18,11 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.store.user == user
   end
 
   def destroy?
-    record.user == user
+    record.store.user == user
   end
 
   def categories_index
