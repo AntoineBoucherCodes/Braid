@@ -1,6 +1,6 @@
 <% @lobby.lobby_participants.each do |lobby_participant| %>
   <div class="lobby-card-user">
-    <%= image_tag "antoine-profile.jpeg", class: "profile-img" %>
+    <%= image_tag "antoine-profile.png", class: "profile-img" %>
     <div class="pl-3" style="max-width: 500px;">
       <h5><%= lobby_participant.user.username %></h5>
       <p>Invitation status: <%= lobby_participant.invitation_status %></p>

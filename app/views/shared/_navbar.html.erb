@@ -1,3 +1,5 @@
+<%= render 'shared/cart_sidebar' %>
+
 <div>
 <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
@@ -26,20 +28,22 @@
             <i class="fas fa-columns" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
           <% end %>
         <li>
-          <%= link_to root_path do %>
+          <%# link_to '#' do %>
             <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
-          <% end %>
+          <%# end %>
         </li>
-        <li>
-          <%= render 'shared/cart_button' %>
-        </li>
+
+        <button type="button" class="btn btn-navbar-cart">
+          <i class="fas fa-shopping-bag shopping-cart-button btn" style="font-size: 19px;"></i>
+          <span class="badge badge-light"><%= @cart.order_items.count %></span>
+        </button>
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <% if current_user.username == 'Paul' %>
               <%= image_tag "paul-profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% elsif current_user.username == 'Antoine' %>
-              <%= image_tag "antoine-profile.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "antoine-profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= image_tag "user-default.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
@@ -69,3 +73,5 @@
     </nav>
   </div>
 </div>
+
+

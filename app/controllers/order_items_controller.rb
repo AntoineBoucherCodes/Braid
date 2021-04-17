@@ -23,7 +23,7 @@ class OrderItemsController < ApplicationController
     respond_to do |format|
       # @order_item.quantity = params[:quantity]
       if @order_item.save
-        format.html { redirect_to @order_item.cart,
+        format.html { redirect_to @order_item.product,
           notice: "#{@order_item.product.name} was successfully added to your cart." }
         format.json { render :show,
           status: :created, location: @order_item }

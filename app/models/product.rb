@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   # multisearchable against: [:name, :description]
   pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description, :categorie ],
+    against: [ :name, :description ],
     using: {
       tsearch: { prefix: true }
     }

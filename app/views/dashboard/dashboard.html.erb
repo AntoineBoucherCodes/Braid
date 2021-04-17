@@ -1,5 +1,87 @@
-<div class="container">
-  <h1 class="d-flex justify-content-center">YOUR DASHBOARD</h1>
+<div class="container" style="padding-top: 30px;">
+
+  <div class="row" style="align-items:flex-start;">
+
+   <div class="col-lg-3" style="background-color: #E7E4D3; padding: 15px;">
+    <div class="list-group">
+      <h1 style="text-align: center; margin-bottom:15px; color: #4A4A4A;">Dashboard</h1>
+      <%= link_to "Stores", dashboard_path, class: "btn btn-ghost" %>
+      <%= link_to "Lobbies", dashboard_path, class: "btn btn-ghost", style: "margin-top:15px;" %>
+      <%= link_to "Invitations ", dashboard_path, class: "btn btn-ghost", style: "margin-top:15px;" %>
+      <%= link_to "Orders", dashboard_path, class: "btn btn-ghost", style: "margin-top:15px;" %>
+    </div>
+  </div>
+
+<div class="col-9" style="padding-left: 15px;">
+  <div class="row" style="align-items:center; justify-content:flex-start;">
+    <%= image_tag "user-default.png", class: "avatar", style: "width: 75px; margin-left: 15px; margin-right: 15px"%>
+    <div>
+      <% if @current_user.username == nil %>
+        @current_user.email
+      <% else %>
+        <h2>Hello, <%=  @current_user.username %></h2>
+      <%end%>
+      <p>Here's what's new for today</p>
+    </div>
+  </div>
+  <br>
+
+  <% if @current_user.stores[0] == nil %>
+
+  <% else %>
+
+  <h2>My Stores</h2>
+  <p style="color: #856406; "><span style="background-color: #FFF3CD; padding: 2px 5px;"> These are the stats for <strong><%= @current_user.stores[0].name %></strong> </span></p>
+  <div class="col-12">
+    <div class="row" style="align-items:center; justify-content:flex-start;">
+      <div class="metric">
+        <div style= "display:flex;">
+          <p> Total Revenue </p>
+          <p class="tiny-button-green">+12.5%</p>
+        </div>
+        <h2> $1,670 </h2>
+        <p> 8 Orders </p>
+      </div>
+      <div class="metric" style= "border-left: solid 0.1px #0E0000;">
+        <div style= "display:flex;">
+          <p> Discount Awarded </p>
+          <p class="tiny-button-green">+5.6%</p>
+        </div>
+        <h2> $160 </h2>
+        <p> 9.6% Avg. Discount </p>
+      </div>
+      <div class="metric" style= "border-left: solid 0.1px #0E0000;">
+        <div style= "display:flex;">
+          <p> Followers </p>
+          <p class="tiny-button-green">+22.6%</p>
+        </div>
+        <h2> 21% </h2>
+        <p> $56 Avg. Order </p>
+      </div>
+      <div class="metric" style= "border-left: solid 0.1px #0E0000;">
+        <div style= "display:flex;">
+          <p> Store Views </p>
+          <p class="tiny-button-red">-5.2%</p>
+        </div>
+        <h2> 20 </h2>
+        <p> 20% Conv. Rate </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style=" justify-content:space-between; margin-top: 15px; padding-left: 15px;">
+    <div>
+      <p> Monthly Average New Sales </p>
+      <h2> $32,250 </h2>
+    </div>
+    <div style= "display:flex;">
+      <p> Month over Month </p>
+      <p class="tiny-button-green">+6.2%</p>
+    </div>
+    <%= image_tag "dashboard.png", style: "margin-top: 15px; margin-bottom:15px; width: 100%" %>
+  </div>
+<% end %>
+
   <br>
   <%= render 'dashboard/your_lobbies' %>
   <br>
