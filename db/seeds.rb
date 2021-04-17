@@ -93,15 +93,7 @@ casper = Store.create(
   address: Faker::Address.city,
   description: "A mattress in a box? Casper sells luxury mattresses direct to consumers along with other sleep products.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id,
-)
-
-allbirds = Store.create(
-  name: "Allbirds",
-  address: Faker::Address.city,
-  description: "The world's most comfortable shoes? Allbirds makes organic footwear that prioritizes simple design as well as sustainable production and distribution.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id,
 )
 
 tuft = Store.create(
@@ -109,7 +101,7 @@ tuft = Store.create(
   address: Faker::Address.city,
   description: "Beautiful furniture for cats.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 quip = Store.create(
@@ -117,7 +109,7 @@ quip = Store.create(
   address: Faker::Address.city,
   description: "Healthy oral care habits for life? Quip has re-designed the electric toothbrush and refillable floss.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 
@@ -126,7 +118,7 @@ glossier = Store.create(
   address: Faker::Address.city,
   description: "Skincare and beauty products inspired by the masses? Glossier makes products designed to be every woman's beauty essentials.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 nuggs = Store.create(
@@ -134,7 +126,7 @@ nuggs = Store.create(
   address: Faker::Address.city,
   description: "NUGGS utilize an advanced technology that enables a hyper-realistic simulation of the texture & flavor of an animal-based nugget.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 mejuri = Store.create(
@@ -142,7 +134,7 @@ mejuri = Store.create(
   address: Faker::Address.city,
   description: "Fine jewelry for everyday? Mejuri designs luxury jewelry for women minus the traditional markup.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 upriseart = Store.create(
@@ -150,7 +142,7 @@ upriseart = Store.create(
   address: Faker::Address.city,
   description: "An online art gallery, to reach a new generation of collectors.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 suvie = Store.create(
@@ -158,7 +150,7 @@ suvie = Store.create(
   address: Faker::Address.city,
   description: "Suvie is an automated refrigerator and cooker that makes healthy meals right on schedule.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
 )
 
 bloomscape = Store.create(
@@ -166,7 +158,15 @@ bloomscape = Store.create(
   address: Faker::Address.city,
   description: "Bloomscape makes buying plants easy - delivering healthy plants & setting you up with the tips and tricks to help your plants thrive.",
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
-  user_id: user_dummy.id
+  user_id: user_dummy_three.id
+)
+
+allbirds = Store.create(
+  name: "Allbirds",
+  address: Faker::Address.city,
+  description: "The world's most comfortable shoes? Allbirds makes organic footwear that prioritizes simple design as well as sustainable production and distribution.",
+  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  user_id: user_dummy_three.id
 )
 
 tecovas = Store.create(
@@ -176,7 +176,6 @@ tecovas = Store.create(
   discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
   user_id: user_dummy.id
 )
-
 
 puts "Creating a few products, hold on..."
 
