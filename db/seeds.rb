@@ -157,7 +157,7 @@ bloomscape = Store.create(
   name: "Bloomscape",
   address: Faker::Address.city,
   description: "Bloomscape makes buying plants easy - delivering healthy plants & setting you up with the tips and tricks to help your plants thrive.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [1000].sample,
   user_id: user_dummy_three.id
 )
 
@@ -410,7 +410,7 @@ suvieoven = Product.create(
 moneytree = Product.create(
   name: "Mini Money Tree",
   description: "A lively, pet-friendly plant topped with palmate leaves upon a stout trunk. A mini-version of the beloved braided Money Tree",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: Faker::Commerce.price(range: 300..400.0, as_string: true),
   store_id: bloomscape.id,
   category_id: home.id
 )
@@ -418,7 +418,7 @@ moneytree = Product.create(
 bromeliad = Product.create(
   name: "Bromeliad Pineapple",
   description: "Truly unique pinapple plant with long-lasting blooms",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: Faker::Commerce.price(range: 300..400.0, as_string: true),
   store_id: bloomscape.id,
   category_id: home.id
 )
@@ -426,7 +426,7 @@ bromeliad = Product.create(
 bamboo = Product.create(
   name: "Bamboo Palm",
   description: "Tropical and dramatic with lush dark green fronds",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: Faker::Commerce.price(range: 300..400.0, as_string: true),
   store_id: bloomscape.id,
   category_id: home.id
 )
