@@ -32,9 +32,11 @@
             <i class="fas fa-bell" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
           <%# end %>
         </li>
-        <li>
-          <i class="fas fa-shopping-bag shopping-cart-button btn" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
-        </li>
+
+        <button type="button" class="btn btn-navbar-cart">
+          <i class="fas fa-shopping-bag shopping-cart-button btn" style="font-size: 19px;"></i>
+          <span class="badge badge-light"><%= @cart.order_items.count %></span>
+        </button>
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
