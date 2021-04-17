@@ -32,6 +32,6 @@
   <h1>Total: <%= number_to_currency(@cart.total_price) %></h1>
 
   <br>
-  <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single' %>
-  <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group' %>
+  <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single', title: 'Perform a regular purchase by yourself', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
+  <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group', title: 'Create a lobby and invite friends to spend more and unlock discounts', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
 </div>
