@@ -10,7 +10,8 @@
 .show-product-store{
   border-radius: 50%;
   height: 125px;
-  width: 125px;
+  width: 125px!important;
+  object-fit: cover;
 }
 
 .product-store-info{
@@ -26,4 +27,6 @@
   border: 1px solid #C3C3BD;
 }
 
-
+.product-image-center {
+  margin: 0 auto;
+}
