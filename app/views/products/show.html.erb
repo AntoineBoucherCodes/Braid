@@ -15,7 +15,7 @@
           <% end %>
         </div>
         <div class="product-store-info">
-          <h1 class='mb-0'><%= @product.store.name %></h1>
+          <h1 class='mb-0'><%= link_to @product.store.name, store_path(@product.store)  %></h1>
           <p class='mb-0'style="color:#51A996;"><%= @product.store.address %></p>
           <p class='mb-0'><%= @product.store.description %></p>
         </div>
