@@ -3,7 +3,7 @@
 
   <h3 class="text-center"><%= @lobby.name %></h3>
 
-  <div class="row">
+  <div class="row align-items-start">
     <div class="col-7">
       <p>Participants:</p>
       <%= render 'lobbies/your_cart' %>
@@ -16,13 +16,13 @@
 
         <br>
         <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
-          <p>Congratulations! This lobby's total cart amount qualifies for a 15% discount!</p>
+          <p>Congratulations! This lobby's total cart amount qualifies for a 10% discount!</p>
           <h1>Your new Lobby's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.10)) %></h1>
         <% else %>
           <p>
             Your order does not qualify for a discount.
             <br>
-            Spend an additional <%= number_to_currency(lobby_store.discount_breakpoints - @lobby.total_price) %> to unlock a 15% discount!
+            Spend an additional <%= number_to_currency(lobby_store.discount_breakpoints - @lobby.total_price) %> to unlock a 10% discount!
           </p>
         <% end %>
       <div class="center-buttons">
@@ -34,10 +34,10 @@
     <div class="col-5 pl-4">
       <div class="store-info-container">
         <div class="product-store-info-lobby">
-          <h1 class='mb-0'><%= lobby_store.name %></h1>
+          <h1 class='mb-0'><%= link_to lobby_store.name, store_path(lobby_store) %></h1>
           <p class='mb-0'style="color:#51A996;"><%= lobby_store.address %></p>
           <p class='mb-0'><%= lobby_store.description %></p>
-          <p>Promotions</p>
+          <p><b>Promotions:</b></p>
           <a class="btn btn-breakpoint-price" href="#"><%= lobby_store.discount_breakpoints %>$</a>
           <a class="btn btn-breakpoint-one" href="#">10% off</a>
           <br>
