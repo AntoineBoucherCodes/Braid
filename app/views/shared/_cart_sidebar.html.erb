@@ -44,8 +44,9 @@
 
     <!-- Group Buy Button -->
     <div class="d-flex justify-content-center">
-      <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group btn-sidebar', title: 'Create a lobby and invite friends to spend more and unlock discounts', 'data-toggle' => 'tooltip', 'data-placement' => 'left' %>
+      <%= link_to 'Group Buy', lobbies_path, method: :post, class: 'btn cart-btn-group btn-sidebar', title: 'Create a lobby and invite friends to spend more and unlock discounts', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
     </div>
+
 
     <div class="d-flex justify-content-center">
       <% if session[:cart_id] %>

@@ -1,6 +1,6 @@
 class LobbiesController < ApplicationController
   before_action :require_login, except: [:show]
-  
+
   def show
     @lobby = Lobby.find(params[:id])
     authorize @lobby
@@ -12,7 +12,8 @@ class LobbiesController < ApplicationController
   end
 
   def create
-    @lobby = Lobby.new(lobby_params)
+    name = "#{current_user.username}'s group buy"
+    @lobby = Lobby.new(name: name)
     # @user = current_user
     # @lobby.name = "#{@user.name}' lobby"
     @lobby.user = current_user
@@ -41,7 +42,7 @@ class LobbiesController < ApplicationController
     end
   end
 
-  def lobby_params
-    params.require(:lobby).permit(:name)
-  end
+  # def lobby_params
+  #   params.require(:lobby).permit(:name)
+  # end
 end
