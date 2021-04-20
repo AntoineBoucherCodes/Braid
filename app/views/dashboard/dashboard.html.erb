@@ -13,9 +13,15 @@
   </div>
 
 <div class="col-9" style="padding-left: 15px;">
-  <div class="row" style="align-items:center; justify-content:flex-start;">
-    <%= image_tag "user-default.png", class: "avatar", style: "width: 75px; margin-left: 15px; margin-right: 15px"%>
-    <div>
+  <div class="row ml-2" style="align-items:center; justify-content:flex-start;">
+    <% if current_user.username == 'Paul' %>
+      <%= image_tag "paul-profile.png", class: "profile-img", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% elsif current_user.username == 'Antoine' %>
+      <%= image_tag "antoine-profile.png", class: "profile-img", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else %>
+      <%= image_tag "user-default.png", class: "profile-img", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end %>
+    <div class='ml-3'>
       <% if @current_user.username == nil %>
         @current_user.email
       <% else %>
