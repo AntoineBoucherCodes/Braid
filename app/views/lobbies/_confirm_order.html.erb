@@ -2,7 +2,7 @@
   <% if @lobby.ready? %>
     <%= link_to "Confirm Order", lobby_path(@lobby), method: :delete, data: { confirm: "Are you sure you want to delete #{@lobby.name}?" } , class: 'btn btn-flat close-rounded-trasparent' %>
   <% else %>
-    <button type="button" class="btn btn-flat close-rounded-trasparent" disabled>Confirm Order</button>
-    <p class='text-left'>*All participants must have accepted the lobby invitation before you can confirm your order.*</p>
+    <button type="button" class="btn btn-confirm close-rounded-trasparent" disabled>Confirm Order</button>
+    <p class='text-left'>*All participants must have accepted the invitation before you can confirm your order.*</p>
   <% end %>
 <% end %>

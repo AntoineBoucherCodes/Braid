@@ -25,7 +25,7 @@
       <ul class="nav-content-list">
         <li>
           <%= link_to dashboard_path do %>
-            <i class="fas fa-columns" style="border-radius: 3px; font-size: 19px; padding: 10px 25px;"></i>
+            <i class="fas fa-columns" style="border-radius: 3px; font-size: 19px; padding: 10px 25px; color:black !important;"></i>
           <% end %>
         <li>
           <%# link_to '#' do %>
@@ -33,10 +33,10 @@
           <%# end %>
         </li>
 
-        <button type="button" class="btn btn-navbar-cart">
-          <i class="fas fa-shopping-bag shopping-cart-button btn" style="font-size: 19px;"></i>
-          <span class="badge badge-light"><%= @cart.order_items.count %></span>
-        </button>
+          <button type="button" class="btn btn-navbar-cart">
+            <i class="fas fa-shopping-bag shopping-cart-button btn" style="font-size: 19px;"></i>
+            <span class="badge badge-light"><%= @cart.order_items.count %></span>
+          </button>
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
