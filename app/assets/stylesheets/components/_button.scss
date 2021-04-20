@@ -19,6 +19,26 @@
   height: 60px;
 }
 
+.btn-confirm {
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  background: $braid-green;
+  width: 180px;
+  height: 60px;
+}
+
+.btn-confirm:hover {
+  color: $black !important;
+  text-decoration: none;
+}
+
+
+.btn-flat:hover {
+  color: $white !important;
+  text-decoration: none;
+}
+
 .btn-black {
   color: white;
   padding: 5px;
@@ -82,6 +102,12 @@
   border-radius: 0px;
   padding: 5px;
 }
+
+.btn-breakpoint-one:hover {
+  color: $white !important;
+  text-decoration: none;
+}
+
 .btn-breakpoint-two{
   width: 88px;
   height: 32px;
@@ -90,8 +116,13 @@
   box-sizing: border-box;
   color: white;
   border-radius: 0px;
-
 }
+
+.btn-breakpoint-two:hover {
+  color: $white !important;
+  text-decoration: none;
+}
+
 .btn-breakpoint-three{
   width: 88px;
   height: 32px;
@@ -101,6 +132,12 @@
   color: white;
   border-radius: 0px;
 }
+
+.btn-breakpoint-three:hover {
+  color: $white !important;
+  text-decoration: none;
+}
+
 .btn-breakpoint-four{
   width: 88px;
   height: 32px;
@@ -109,4 +146,9 @@
   box-sizing: border-box;
   color: white;
   border-radius: 0px;
+}
+
+.btn-breakpoint-four:hover {
+  color: $white !important;
+  text-decoration: none;
 }
