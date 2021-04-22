@@ -92,7 +92,7 @@ casper = Store.create(
   name: "Casper",
   address: Faker::Address.city,
   description: "A mattress in a box? Casper sells luxury mattresses direct to consumers along with other sleep products.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [1000].sample,
   user_id: user_dummy_three.id,
 )
 
@@ -100,7 +100,7 @@ tuft = Store.create(
   name: "Tuft & Paw",
   address: Faker::Address.city,
   description: "Beautiful furniture for cats.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [1000].sample,
   user_id: user_dummy_three.id
 )
 
@@ -108,7 +108,7 @@ quip = Store.create(
   name: "Quip",
   address: Faker::Address.city,
   description: "Healthy oral care habits for life? Quip has re-designed the electric toothbrush and refillable floss.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [500].sample,
   user_id: user_dummy_three.id
 )
 
@@ -117,7 +117,7 @@ glossier = Store.create(
   name: "Glossier",
   address: Faker::Address.city,
   description: "Skincare and beauty products inspired by the masses? Glossier makes products designed to be every woman's beauty essentials.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [600].sample,
   user_id: user_dummy_three.id
 )
 
@@ -125,7 +125,7 @@ nuggs = Store.create(
   name: "Nugss",
   address: Faker::Address.city,
   description: "NUGGS utilize an advanced technology that enables a hyper-realistic simulation of the texture & flavor of an animal-based nugget.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [200].sample,
   user_id: user_dummy_three.id
 )
 
@@ -133,7 +133,7 @@ mejuri = Store.create(
   name: "Mejuri",
   address: Faker::Address.city,
   description: "Fine jewelry for everyday? Mejuri designs luxury jewelry for women minus the traditional markup.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [600].sample,
   user_id: user_dummy_three.id
 )
 
@@ -141,7 +141,7 @@ upriseart = Store.create(
   name: "Uprise Art",
   address: Faker::Address.city,
   description: "An online art gallery, to reach a new generation of collectors.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [700].sample,
   user_id: user_dummy_three.id
 )
 
@@ -149,7 +149,7 @@ suvie = Store.create(
   name: "Suvie",
   address: Faker::Address.city,
   description: "Suvie is an automated refrigerator and cooker that makes healthy meals right on schedule.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [800].sample,
   user_id: user_dummy_three.id
 )
 
@@ -157,7 +157,7 @@ bloomscape = Store.create(
   name: "Bloomscape",
   address: Faker::Address.city,
   description: "Bloomscape makes buying plants easy - delivering healthy plants & setting you up with the tips and tricks to help your plants thrive.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [250].sample,
   user_id: user_dummy_three.id
 )
 
@@ -165,7 +165,7 @@ allbirds = Store.create(
   name: "Allbirds",
   address: Faker::Address.city,
   description: "The world's most comfortable shoes? Allbirds makes organic footwear that prioritizes simple design as well as sustainable production and distribution.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [400].sample,
   user_id: user_dummy_three.id
 )
 
@@ -173,7 +173,7 @@ tecovas = Store.create(
   name: "Tecovas",
   address: Faker::Address.city,
   description: "Tecovas is the first direct-to-consumer western brand, selling top-quality, approachably priced cowboy boots, apparel, and accessories.",
-  discount_breakpoints: [500, 600, 700, 800, 900, 1000].sample,
+  discount_breakpoints: [600].sample,
   user_id: user_dummy.id
 )
 
@@ -184,7 +184,7 @@ puts "Creating a few products, hold on..."
 haven = Product.create(
   name: "Haven Bed Frame",
   description: "Wrapped in Felted Wool for softness all around.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "799.99".to_f,
   store_id: casper.id,
   category_id: home.id
 )
@@ -192,7 +192,7 @@ haven = Product.create(
 repose = Product.create(
   name: "Repose Bed Frame",
   description: "Sleek support with softened edges for a warm look.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "829.99".to_f,
   store_id: casper.id,
   category_id: home.id
 )
@@ -200,7 +200,7 @@ repose = Product.create(
 adjustable = Product.create(
   name: "Adjustable Bed Frame",
   description: "A customizable setup.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "799.99".to_f,
   store_id: casper.id,
   category_id: home.id
 )
@@ -208,7 +208,7 @@ adjustable = Product.create(
 originalpillow = Product.create(
   name: "Original Casper Pillow",
   description: "A down-alternative pillow, that’s supportive with a touch of fluff.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "89.99".to_f,
   store_id: casper.id,
   category_id: home.id
 )
@@ -216,7 +216,7 @@ originalpillow = Product.create(
 foampillow = Product.create(
   name: "Foam Pillow",
   description: "A down-alternative pillow, that’s supportive with a touch of fluff.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "89.99".to_f,
   store_id: casper.id,
   category_id: home.id
 )
@@ -226,7 +226,7 @@ foampillow = Product.create(
 runningshoes = Product.create(
   name: "Running shoes",
   description: "Our running shoe designed with breathable Tree material.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "149.99".to_f,
   store_id: allbirds.id,
   category_id: clothing.id
 )
@@ -234,7 +234,7 @@ runningshoes = Product.create(
 everydaysneakers = Product.create(
   name: "Everyday sneakers",
   description: "Our everyday sneaker made with breezy eucalyptus tree.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "149.99".to_f,
   store_id: allbirds.id,
   category_id: clothing.id
 )
@@ -242,7 +242,7 @@ everydaysneakers = Product.create(
 hightops = Product.create(
   name: "High-Tops",
   description: "Our classic high top made with breezy eucalyptus tree.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "169.99".to_f,
   store_id: allbirds.id,
   category_id: clothing.id
 )
@@ -252,7 +252,7 @@ hightops = Product.create(
 stella = Product.create(
   name: "Stellar",
   description: "Humans appreciate the Stellar for its striking design. For cats, it’s simply an otherworldly escape from the everyday activity of the home.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "399.99".to_f,
   store_id: tuft.id,
   category_id: pets.id
 )
@@ -260,7 +260,7 @@ stella = Product.create(
 happycamper = Product.create(
   name: "Happy Camper",
   description: "A cat retreat with options. This bed’s precision-cut, faceted panels are finished with wood veneer on one side and scratchable felt on the other.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "199.99".to_f,
   store_id: tuft.id,
   category_id: pets.id
 )
@@ -268,7 +268,7 @@ happycamper = Product.create(
 rifuti = Product.create(
   name: "Rifuti",
   description: "Fit for a king yet designed for your cat. Its slatted horizontal stripes and tapered legs reference mid-century modern furniture and classic retro radio designs.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "219.99".to_f,
   store_id: tuft.id,
   category_id: pets.id
 )
@@ -278,7 +278,7 @@ rifuti = Product.create(
 electrictoothbrush = Product.create(
   name: "Electric Toothbrush",
   description: "All the makings for a healthy mouth, in styles you’ll love.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "119.99".to_f,
   store_id: quip.id,
   category_id: wellness.id
 )
@@ -286,7 +286,7 @@ electrictoothbrush = Product.create(
 kidelectrictoothbrush = Product.create(
   name: "Kids Electric Toothbrush",
   description: "Help kids brush better, track progress, and earn rewards.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "109.99".to_f,
   store_id: quip.id,
   category_id: wellness.id
 )
@@ -294,7 +294,7 @@ kidelectrictoothbrush = Product.create(
 floss = Product.create(
   name: "Refillable Floss Pick",
   description: "Pick forever floss that replaces 180 disposable picks per refill",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "19.99".to_f,
   store_id: quip.id,
   category_id: wellness.id
 )
@@ -304,7 +304,7 @@ floss = Product.create(
 boybrow = Product.create(
   name: "Boy Brow",
   description: "A brushable, creamy wax that visibly thickens, shapes, and grooms brows into place.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "39.99".to_f,
   store_id: glossier.id,
   category_id: beauty.id
 )
@@ -312,7 +312,7 @@ boybrow = Product.create(
 skintint = Product.create(
   name: "Perfecting Skin Tint",
   description: "In the land between bare skin and makeup makeup exists the imperceptible wash of color that is Perfecting Skin Tint.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "59.99".to_f,
   store_id: glossier.id,
   category_id: beauty.id
 )
@@ -320,7 +320,7 @@ skintint = Product.create(
 makeupset = Product.create(
   name: "Makeup Set",
   description: "Our three-step makeup routine for an instantly put-together glow, plus our coated cotton makeup case—together for less in one limited-edition duo.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "109.99".to_f,
   store_id: glossier.id,
   category_id: beauty.id
 )
@@ -330,7 +330,7 @@ makeupset = Product.create(
 regularnuggs = Product.create(
   name: "Nuggs",
   description: "NUGGS utilizes advanced proteins to achieve superior nutritional content and is finished with a batter that optimizes for flavor and crunchiness, creating the most accurate chicken nugget simulation.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "12.99".to_f,
   store_id: nuggs.id,
   category_id: food.id
 )
@@ -338,7 +338,7 @@ regularnuggs = Product.create(
 spicynuggs = Product.create(
   name: "Spicy Nuggs",
   description: "NUGGS utilizes advanced proteins to achieve superior nutritional content and is finished with a batter that optimizes for flavor and crunchiness, creating the most accurate chicken nugget simulation.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "13.99".to_f,
   store_id: nuggs.id,
   category_id: food.id
 )
@@ -348,7 +348,7 @@ spicynuggs = Product.create(
 earring = Product.create(
   name: "Croissant Earrings",
   description: "Looking like a French girl isn’t as difficile as it seems. Handcrafted in vermeil, a thick 18k gold layer on sterling silver. Consider this croissant-inspired hoops to make all your Parisian dreams come true.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "89.99".to_f,
   store_id: mejuri.id,
   category_id: jewelry.id
 )
@@ -356,7 +356,7 @@ earring = Product.create(
 necklace = Product.create(
   name: "Boyfriend Necklace",
   description: "Your boyfriend denim just found its match. It’s handcrafted in 14k solid gold. Raw, loose, and bold. Wear it every day – whenever, wherever.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "109.99".to_f,
   store_id: mejuri.id,
   category_id: jewelry.id
 )
@@ -364,7 +364,7 @@ necklace = Product.create(
 ring = Product.create(
   name: "Monochrome Dôme Ring",
   description: "The answer to your styling dilemmas? Going monochromatic—always a solid choice. Handcrafted in 18k gold vermeil with an enamel coating and set with prasiolite.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "109.99".to_f,
   store_id: mejuri.id,
   category_id: jewelry.id
 )
@@ -374,7 +374,7 @@ ring = Product.create(
 togetheragain = Product.create(
   name: "Together Again",
   description: "Three figures are depicted laying together, their bodies, for lack of a better word, bleeding into one another, the lines of their forms breaking apart and rearranging into a single object. Is this a dream about the days when we can lay together, absorbing each others presence, without fear? Is this a dream where those who are lost to us are with us again? Life, at this moment, necessitates a distinct distancing and singularity. And death then comes to encompass all that is opposed to that: togetherness, the interweaving of stories or molecules.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "399.99".to_f,
   store_id: upriseart.id,
   category_id: art.id
 )
@@ -382,7 +382,7 @@ togetheragain = Product.create(
 coralandgreen = Product.create(
   name: "Coral and Green",
   description: "Matthew Ward (b.1976) approaches pottery through a multi-disciplinary lens. Trained as a painter, he brings techniques traditionally reserved for two dimensional work into the realm of ceramics, incorporating techniques such as stamping and incising, as well as art historical concepts from the mid-20th century and postwar art. Ward is based in Santa Fe, NM and has been featured in publications such as Metropolis and Dwell.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "399.99".to_f,
   store_id: upriseart.id,
   category_id: art.id
 )
@@ -390,7 +390,7 @@ coralandgreen = Product.create(
 clothedinthesun = Product.create(
   name: "Clothed in the Sun",
   description: "My work deals with the human relationship to the natural world.  This series is centered specifically on how the eye registers light, and the meaning and power of color",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "399.99".to_f,
   store_id: upriseart.id,
   category_id: art.id
 )
@@ -400,7 +400,7 @@ clothedinthesun = Product.create(
 suvieoven = Product.create(
   name: "Suvie Kitchen Robot",
   description: "Dual-Zone Cooker for Proteins and Vegetables Starch Cooker for Pasta, Rice, and more",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "299.99".to_f,
   store_id: suvie.id,
   category_id: tech.id
 )
@@ -410,7 +410,7 @@ suvieoven = Product.create(
 moneytree = Product.create(
   name: "Mini Money Tree",
   description: "A lively, pet-friendly plant topped with palmate leaves upon a stout trunk. A mini-version of the beloved braided Money Tree",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "89.99".to_f,
   store_id: bloomscape.id,
   category_id: home.id
 )
@@ -418,7 +418,7 @@ moneytree = Product.create(
 bromeliad = Product.create(
   name: "Bromeliad Pineapple",
   description: "Truly unique pinapple plant with long-lasting blooms",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "109.99".to_f,
   store_id: bloomscape.id,
   category_id: home.id
 )
@@ -426,7 +426,7 @@ bromeliad = Product.create(
 bamboo = Product.create(
   name: "Bamboo Palm",
   description: "Tropical and dramatic with lush dark green fronds",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "79.99".to_f,
   store_id: bloomscape.id,
   category_id: home.id
 )
@@ -436,7 +436,7 @@ bamboo = Product.create(
 earl = Product.create(
   name: "The Earl",
   description: "The Earl is a versatile roper boot with universal appeal. Designed to be both practical and stylish, it features a heel shorter than that of a traditional cowboy boot. The vamp is left unadorned in order to showcase the ultra-soft, hand-burnished calfskin leather.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "149.99".to_f,
   store_id: tecovas.id,
   category_id: clothing.id
 )
@@ -444,7 +444,7 @@ earl = Product.create(
 cartwright = Product.create(
   name: "The Cartwright",
   description: "The Cartwright is a timeless cowboy boot with an angled heel, signature Tecovas toe stitching, and an elegant, sweeping hand-corded pattern on its shaft. Ultra-soft calfskin leather wraps the entire boot for a look that can be worn on any occasion.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "139.99".to_f,
   store_id: tecovas.id,
   category_id: clothing.id
 )
@@ -452,7 +452,7 @@ cartwright = Product.create(
 dean = Product.create(
   name: "The Dean",
   description: "The Dean is a modern boot designed for all-access versatility. A slim-cut shaft allows for everyday wear with any jeans - and a subtly-designed zipper means 'easy on, easy off' comfort. Handmade with our classic western construction in our signature supple calfskin leather, The Dean may be the most versatile western boot ever.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "149.99".to_f,
   store_id: tecovas.id,
   category_id: clothing.id
 )
@@ -460,7 +460,7 @@ dean = Product.create(
 dadhat = Product.create(
   name: "Dad Hat",
   description: "The Dad Hat is your versatile ball cap you'll never want to leave home without. It features broken-in, unstructured cotton twill, a low (but not too low) profile, and an adjustable strap.",
-  price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+  price: "29.99".to_f,
   store_id: tecovas.id,
   category_id: clothing.id
 )

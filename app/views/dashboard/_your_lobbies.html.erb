@@ -1,5 +1,6 @@
 <div class="dashboard-container">
-  <h2>Active Lobbies</h2>
+  
+  <h2>Active Group Buys</h2>
 
   <% if @lobbies.count == 0 %>
     <h1>You do not have any active Group Buys.</h1>
@@ -8,7 +9,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Lobby Name</th>
+          <th scope="col">Group Name</th>
           <th scope="col">Date Created</th>
           <th scope="col">Number of Participants</th>
         </tr>
@@ -24,6 +25,6 @@
         <% end %>
       </tbody>
     </table>
-
   <% end %>
+
 </div>

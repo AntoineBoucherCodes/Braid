@@ -1,14 +1,15 @@
 <div class="dashboard-container">
-  <h2>Lobby Invitations</h2>
+  
+  <h2>Group Buy Invitations</h2>
 
   <% if @lobby_participants.count == 0 %>
     <h1>You do not have any Group Buy invitations.</h1>
+  
   <% else %>
-
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Lobby Name</th>
+          <th scope="col">Group Name</th>
           <th scope="col">Owner</th>
           <th scope="col">Date Created</th>
           <th scope="col">Status</th>
@@ -32,11 +33,10 @@
             <% else %>
               <td>Declined</td>
             <% end %>
-
           </tr>
         <% end %>
       </tbody>
     </table>
-
   <% end %>
+  
 </div>

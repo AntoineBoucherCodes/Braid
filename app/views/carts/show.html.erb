@@ -1,5 +1,5 @@
 <div class="container cart-font">
-  <h2>Your Cart</h2>
+  <h2>Your Cart TEST</h2>
 
   <% if @cart.order_items.count == 0 %>
     <p>Your cart is empty.</p>
@@ -33,5 +33,6 @@
 
   <br>
   <%= link_to 'Single Buy', '#', class: 'btn cart-btn-single', title: 'Perform a regular purchase by yourself', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
-  <%= link_to 'Group Buy', new_lobby_path, class: 'btn cart-btn-group', title: 'Create a lobby and invite friends to spend more and unlock discounts', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
+
+  <%= button_to 'Group Buy', lobbies_path, method: :post, class: 'btn cart-btn-group', title: 'Create a lobby and invite friends to spend more and unlock discounts', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
 </div>
