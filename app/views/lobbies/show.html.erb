@@ -1,7 +1,7 @@
 <div class="container">
   <% if @lobby.user.carts.last.order_items == [] %>
     <%# lobby_store = (@stores.select { |x| x.name == 'Bloomscape' }).first %>
-    <% lobby_store = @stores[0] %>
+    <% lobby_store = @stores.sample %>
   <% else %>
     <% lobby_store = @lobby.user.carts.last.order_items.first.product.store %>
   <% end %>
