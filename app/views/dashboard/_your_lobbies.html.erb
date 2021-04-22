@@ -1,20 +1,30 @@
-<h2>Active Group Buy</h2>
+<div class="dashboard-container">
+  
+  <h2>Active Group Buys</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Group Name</th>
-      <th scope="col">Date Created</th>
-      <th scope="col">Number of Participants</th>
-    </tr>
-  </thead>
-  <% @lobbies.each do |lobby| %>
-    <tbody>
-      <tr>
-        <th scope="row"><%= link_to lobby.name, lobby_path(lobby) %></th>
-        <td><%= lobby.created_at %></td>
-        <td><%= lobby.lobby_participants.count + 1 %></td>
-      </tr>
-    </tbody>
+  <% if @lobbies.count == 0 %>
+    <h1>You do not have any active Group Buys.</h1>
+
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Group Name</th>
+          <th scope="col">Date Created</th>
+          <th scope="col">Number of Participants</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @lobbies.each do |lobby| %>
+          <tr>
+            <th scope="row"><%= link_to lobby.name, lobby_path(lobby) %></th>
+            <td><%= lobby.created_at %></td>
+            <td><%= lobby.lobby_participants.count + 1 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
-</table>
+
+</div>

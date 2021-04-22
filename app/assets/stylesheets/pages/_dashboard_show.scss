@@ -17,3 +17,37 @@
   border-radius: 15px;
   padding: 1px 3px;
 }
+
+.dashboard-container {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.dashboard-tabl {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: black;
+}
+
+.table {
+  thead th {
+    border-bottom: 2px solid black !important;
+  }
+
+  th {
+    border-top: 1px solid black !important;
+    color: $braid-green;
+  }
+
+  tr td {
+    border-top: 1px solid black !important;
+  }
+}
+
+h2 {
+  color: $braid-green;
+}
