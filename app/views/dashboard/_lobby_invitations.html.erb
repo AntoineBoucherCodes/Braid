@@ -1,34 +1,42 @@
-<h2>Lobby Invitations</h2>
+<div class="dashboard-container">
+  
+  <h2>Group Buy Invitations</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Lobby Name</th>
-      <th scope="col">Owner</th>
-      <th scope="col">Date Created</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @lobby_participants.each do |lobby_participant| %>
-      <tr>
-        <th scope="row"><%= link_to lobby_participant.lobby.name, lobby_path(lobby_participant.lobby) %></th>
-        <td><%= lobby_participant.lobby.user.email %></td>
-        <td><%= lobby_participant.lobby.created_at %></td>
+  <% if @lobby_participants.count == 0 %>
+    <h1>You do not have any Group Buy invitations.</h1>
+  
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Group Name</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Date Created</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lobby_participants.each do |lobby_participant| %>
+          <tr>
+            <th scope="row"><%= link_to lobby_participant.lobby.name, lobby_path(lobby_participant.lobby) %></th>
+            <td><%= lobby_participant.lobby.user.email %></td>
+            <td><%= lobby_participant.lobby.created_at %></td>
 
-        <% if lobby_participant.invitation_status == 'Pending' %>
-          <td>
-            <%= link_to "Accept", lobby_accept_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to accept this invitation?" }, class: 'btn btn-success btn-sm' %>
-            <%= link_to "Decline", lobby_decline_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" }, class: 'btn btn-danger btn-sm' %>
-          </td>
+            <% if lobby_participant.invitation_status == 'Pending' %>
+              <td>
+                <%= link_to "Accept", lobby_accept_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to accept this invitation?" }, class: 'btn btn-success btn-sm' %>
+                <%= link_to "Decline", lobby_decline_path(lobby_participant.id), method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" }, class: 'btn btn-danger btn-sm' %>
+              </td>
 
-        <% elsif lobby_participant.invitation_status == 'Accepted' %>
-          <td>Accepted</td>
-        <% else %>
-          <td>Declined</td>
+            <% elsif lobby_participant.invitation_status == 'Accepted' %>
+              <td>Accepted</td>
+            <% else %>
+              <td>Declined</td>
+            <% end %>
+          </tr>
         <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  <% end %>
+  
+</div>
