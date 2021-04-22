@@ -3,6 +3,7 @@ class LobbiesController < ApplicationController
 
   def show
     @lobby = Lobby.find(params[:id])
+    @stores = policy_scope(Store)
     authorize @lobby
   end
 

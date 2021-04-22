@@ -1,5 +1,10 @@
 <div class="container">
-  <% lobby_store = @lobby.user.carts.last.order_items.first.product.store %>
+  <% if @lobby.user.carts.last.order_items == [] %>
+    <%# lobby_store = (@stores.select { |x| x.name == 'Bloomscape' }).first %>
+    <% lobby_store = @stores[0] %>
+  <% else %>
+    <% lobby_store = @lobby.user.carts.last.order_items.first.product.store %>
+  <% end %>
 
   <h3 class="text-center"><%= @lobby.name %></h3>
 
