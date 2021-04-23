@@ -23,7 +23,7 @@
         <% if @lobby.total_price >= lobby_store.discount_breakpoints %>
 
           <p>Congratulations! This Group Buy's total cart amount qualifies for a 10% discount!</p>
-          <h1>Your new Lobby's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.10)) %></h1>
+          <h1>Your new Group Buy's Total: <%= number_to_currency(@lobby.total_price - (@lobby.total_price * 0.10)) %></h1>
 
         <% else %>
           <p>
